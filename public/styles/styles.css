@@ -1,0 +1,79 @@
+/* Global CSS */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: white;
+}
+
+/* CSS for landing.html */
+header#landing {
+    background-image: url("./../img/group_meet.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+#landing h1 {
+    font-size: 55px;
+    line-height: 1.5;
+}
+
+#landing p {
+    font-size: 25px;
+}
+
+#landing .buttons, #landing .logo {
+    display: inline;
+}
+
+#landing .logo {
+    margin: 0;
+}
+
+#landing .sign-button {
+    float: left;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    border: white 1px solid;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 20px;
+}
+
+#landing .sign-button:hover {
+    background: white;
+    color: rgb(156, 50, 37);
+}
+
+#information #info_features {
+    padding: 10px 10px 0 10px;
+    text-decoration: underline;
+}
+
+#information {
+    color: rgb(156, 50, 37);
+    background-color: rgb(251, 229, 214);
+}
+
+#information ul {
+    padding: 0 20px 20px 20px;
+}
+
+#information ul li {
+    list-style-type: none;
+    margin: 20px;
+}
