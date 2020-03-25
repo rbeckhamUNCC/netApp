@@ -14,7 +14,7 @@ body {
 
 /* CSS for landing.html */
 header#landing {
-    background-image: url("../img/group_meet.png");
+    background-image: url("./group_meet.png");
     background-size: cover;
     background-position: center;
     height: 100vh;
