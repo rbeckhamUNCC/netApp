@@ -1,0 +1,22 @@
+{
+  "name": "capstone_code",
+  "version": "1.0.0",
+  "description": "Groupmeet Project",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmccoy23/groupmeet.git"
+  },
+  "author": "GroupMeet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmccoy23/groupmeet/issues"
+  },
+  "homepage": "https://github.com/mmccoy23/groupmeet#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
