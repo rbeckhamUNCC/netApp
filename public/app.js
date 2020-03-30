@@ -13,7 +13,12 @@ app.get('/', (request, response) => {
     response.sendFile(__dirname + '/views/landing.html');
 });
 
+app.use('/dashboard', function(request, response){
+    response.sendFile(__dirname + '/views/dashboard.html');
+});
+
 //initialize and listen on a port
 app.listen(port, () => {
     console.log(`App has started and is listening on port ${port}`);
 });
+

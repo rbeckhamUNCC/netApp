@@ -10,15 +10,18 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/styles.css">
     <link rel="icon" href="/assets/favicon.png">
-    <link rel="stylesheet" href="/assets/styles.css" type="text/css"/>
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css"/>
 
     <title>GroupMeet - Dashboard</title>
 </head>
 <body>
-    <header id="dashboard">
-        <div class="grid_12">
-            <div id="meetingTimes">
-                <h1>This Week's Meeting Time</h1>
+    <div class="grid_12">
+         <header id="dashboard">
+                <h1 id="dashboardHeader">This Week's Meeting Time</h1>
+         </header>
+        <div id="meetingTimes">
                 <table>
                     <tr>
                         <td class="weekCalendar">Mon</td>
@@ -27,7 +30,7 @@ and open the template in the editor.
                         <td class="weekCalendar">Thurs</td>
                         <td class="weekCalendar">Fri</td>
                         <td class="weekCalendar">Sat</td>
-                        <td class="weekCalendar">Sun</td>
+                        <td class="weekCalendar">Sun</td>                        
                     </tr>
                 </table>
             </div>

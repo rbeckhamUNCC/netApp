@@ -77,3 +77,27 @@ header#landing {
     list-style-type: none;
     margin: 20px;
 }
+
+.grid_12 {
+    display: inline;
+    float: left;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+td {
+    
+}
+
+.weekCalendar {
+    border: 2px solid black;
+}
+
+#dashboardHeader h1 {
+    
+}
+
+#dashboard {
+    
+}
