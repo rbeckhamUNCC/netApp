@@ -1,2 +1,11 @@
-//test again, it keeps saying im unknown
-var user = "test!!!!!"
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const UserSchema = new Schema({
+    name: String,
+    groups: Array
+})
+
+const User = mongoose.model('user', UserSchema);
+
+module.exports = User

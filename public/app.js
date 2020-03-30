@@ -4,7 +4,12 @@ const express = require('express');
 const app = express();
 //set up a port
 const port = process.env.PORT || 8080;
+//import mongo
+const testMongo = require('./routes/mongo');
+// tests to see if adding to db is possible
+testMongo.testAddToDB();
 
+//!! Will need to move these to the Routes folder eventually!!
 //specifying the static route
 app.use('/assets', express.static('assets'));
 
