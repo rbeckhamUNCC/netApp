@@ -86,18 +86,33 @@ header#landing {
     margin-right: 10px;
 }
 
-td {
-    
-}
 
 .weekCalendar {
-    border: 2px solid black;
+    border: 1px solid black;
+    color: black;
+    padding: 5px 40px;
 }
 
-#dashboardHeader h1 {
-    
+#dashboardHeader {
+    color: black;
+    font-size: 22px;
+    padding: 5px 10px;
 }
 
 #dashboard {
-    
+    border: 1px solid black;
+}
+
+#recentActivityHeader {
+    color: black;
+    font-size: 16px;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+#recentActivity {
+    border: 1px solid black;
+    height: 400px;
+    width: 853px;
 }
