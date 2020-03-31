@@ -7,6 +7,6 @@
 3. Navigate to where you installed MongoDB and run the application "mongod", **FOLLOWED** by "mongo".
 
 ### Running Groupmeet
-1. If you do not have [Node.js and npm](https://www.npmjs.com/get-npm) installed. 
+1. Install [Node.js and npm](https://www.npmjs.com/get-npm). 
 2. Navigate to public folder and open it in your terminal of choice and run "npm install".
 3. After installation is complete run "node app.js".
