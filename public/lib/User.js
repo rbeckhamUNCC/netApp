@@ -8,6 +8,6 @@ const userSchema = new mongoose.Schema({
 });
 
 
-var User = mongoose.model('myuser', userSchema);
+var User = mongoose.model('groupmeet', userSchema);
 
 module.exports = User;
