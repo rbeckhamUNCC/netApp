@@ -7,7 +7,9 @@ module.exports = {
     const mongoose = require('mongoose');
     var assert = require ('assert');
 
-    mongoose.connect('mongodb://localhost/groupmeet');
+    mongoose.connect('mongodb://localhost/groupmeet',{useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true});
 
     mongoose.connection.once('open', function(){
         console.log('connected to groupmeet')
