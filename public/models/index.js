@@ -4,7 +4,7 @@ var User = require('user'); //possible error here
 
 // Get login page
 router.get('/',function(request,response){
-    res.render('index',{title: 'express'});
+    res.render('index',{title: 'Express'});
 });
 
 router.post('/register',function(request,response){
@@ -26,7 +26,7 @@ router.post('/register',function(request,response){
             console.log(err);
             return res.status(500).send();
         }
-        //return successful status code
+        //return successful status 
         return res.status(200).send();
     });
 });
