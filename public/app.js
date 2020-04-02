@@ -85,16 +85,18 @@ app.use('/login', login);
 //default route for the landing page
 app.get('/', (request, response) => {
     
-//    var users = [
-//        {username: "preloadLoadUp", password: "1234", firstname: "pre", lastname: "ld"}];
-//    
-//    User.collection.insertMany(users, function (err, docs) {
-//          if (err){ 
-//              return console.error(err);
-//          } else {
-//            console.log("Multiple documents inserted to Collection");
-//          }
-//        });
+    var users = [
+        {_id: 1, username: "preloadLoadUp3", password: "1234", firstname: "pre", lastname: "last"},
+        {_id: 2,username: "preloadLoadUp2", password: "1234", firstname: "pr2e", lastname: "last2"}
+    ];
+    
+    User.collection.insertMany(users, function (err, docs) {
+          if (err){ 
+              return console.error(err);
+          } else {
+            console.log("Multiple documents inserted to Collection");
+          }
+        });
         //send to landing page
     response.sendFile(__dirname + '/views/landing.html');
 });

@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 //create user model
 const userSchema3 = new mongoose.Schema({
-    username: {type: String, unique: true},
+    //change unique to true once database testing is over
+    username: {type: String},
     password: {type: String},
     firstname: String,
     lastname: String
