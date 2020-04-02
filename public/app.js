@@ -66,6 +66,9 @@ const userSchema2 = new Schema({
 //for testing test database, string param is what database to use, in mongo shell, 'test' becomes 'tests', so use cmd db.tests.findOne()
 var UserModel = mongoose.model('usermodel', userSchema2);
 
+//setup preloaded users version
+var UserModel2 = mongoose.model('preloadedUser', userSchema2);
+
 
 //!! Will need to move these to the Routes folder eventually!!
 //specifying the static route
@@ -81,6 +84,18 @@ app.use('/login', login);
 
 //default route for the landing page
 app.get('/', (request, response) => {
+    
+//    var users = [
+//        {username: "preloadLoadUp", password: "1234", firstname: "pre", lastname: "ld"}];
+//    
+//    User.collection.insertMany(users, function (err, docs) {
+//          if (err){ 
+//              return console.error(err);
+//          } else {
+//            console.log("Multiple documents inserted to Collection");
+//          }
+//        });
+        //send to landing page
     response.sendFile(__dirname + '/views/landing.html');
 });
 
@@ -117,6 +132,8 @@ app.post('/addname/:firstname/:lastname', function(request, response){
             }
     });
 });
+
+
 
 
 //TESTACTION read all saved data in databse with empty object check, currently working and set to test db
