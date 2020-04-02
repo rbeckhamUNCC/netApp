@@ -1,3 +1,4 @@
+
 module.exports = {
     testAddToDB: function() {
     var express = require('express');
@@ -15,20 +16,6 @@ module.exports = {
         console.log("Connection error: ", err)
     })
 
-    // var mongoTestItem = {
-    //     string: "string",
-    //     array: ["0","1","2"],
-    //     double: 1.00
-    // };
-
-    // mongo.connect(url, function(err, db) {
-    //     assert.equal(null, err);
-    //     db.collection('insert-test').insertOne(mongoTestItem, function(err, result){
-    //         assert.equal(null, err)
-    //         console.log("Added to DB")
-    //         db.close();
-    //     })
-    // })
     }
 
 }
