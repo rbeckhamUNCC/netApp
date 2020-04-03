@@ -99,7 +99,7 @@ router.post('/register',function(request,response){
     newUser.lastname = lastname;
     
     //save user
-    newUser.register(function(err,savedUser){
+    newUser.insertOne(function(err,savedUser){
         if(err){
             //log error if one exists
             console.log(err);
