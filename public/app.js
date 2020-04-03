@@ -183,29 +183,30 @@ app.get('/deleteall', function(request,response){
     });
 });
 
-//app.post('/register',function(request,response){
-//    var username = request.body.username;
-//    var password = request.body.password;
-//    var firstname = request.body.firstname;
-//    var lastname = request.body.lastname;
-//
-//    var newUser = new UserModel2();
-//    newUser.username = username;
-//    newUser.password = password;
-//    newUser.firstname = firstname;
-//    newUser.lastname = lastname;
-//
-//    //save user
-//    newUser.save(function(err,savedUser){
-//        if(err){
-//            //log error if one exists
-//            console.log(err);
-//            return response.status(500).send();
-//        }
-//        //return successful status
-//        return response.status(200).send();
-//    });
-//});
+app.post('/index/register',function(request,response){
+    var userName = request.body.userName;
+    var password = request.body.password;
+    var firstName = request.body.firstName;
+    var lastName = request.body.lastName;
+ 
+    var newUser = new User({
+     username : userName,
+     password : password,
+     firstname : firstName,
+     lastname : lastName
+    });
+    console.log(newUser.username);
+    console.log(request.body);
+ 
+    User.collection.insertOne(newUser, function (err, docs) {
+     if (err){ 
+         return console.error(err);
+     } else {
+       console.log("New user added");
+       response.send(`User: ${newUser.username} added!`)
+     }
+   });
+ });
 
 //initialize and listen on a port
 app.listen(port, () => {
