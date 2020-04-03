@@ -6,9 +6,10 @@ const TaskSchema = new Schema({
     taskName: String,
     maker: User,
     group: Group,
-    description: String
+    description: String,
+    status: String
 
-})
+}, { collection: 'tasks' })
 
 const Task = mongoose.model('task', TaskSchema);
 

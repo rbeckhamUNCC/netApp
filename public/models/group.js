@@ -12,7 +12,7 @@ const GroupSchema = new Schema({
     groupImage: String,
     files: Array
         
-})
+}, { collection: 'groups' })
 
 const Group = mongoose.model('group', GroupSchema);
 

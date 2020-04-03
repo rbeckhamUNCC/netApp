@@ -8,7 +8,7 @@ const CommentSchema = new Schema({
     password: String,
     isReplyTo: String
 
-})
+}, { collection: 'comments' })
 
 const Comment = mongoose.model('comment', CommentSchema);
 

@@ -7,7 +7,7 @@ const MeetingSchema = new Schema({
     attendees: Array,
     meetingTime: Date
 
-})
+}, { collection: 'meetings' })
 
 const Meeting = mongoose.model('meeting', MeetingSchema);
 

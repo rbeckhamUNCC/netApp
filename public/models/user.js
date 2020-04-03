@@ -11,7 +11,7 @@ const UserSchema = new Schema({
     //image will be a file
     profilePic: String
 
-})
+}, { collection: 'users' })
 
 const User = mongoose.model('user', UserSchema);
 
