@@ -85,7 +85,7 @@ response.sendFile(path.resolve('./views/login.html'));
 });
 
 //register new user and save to database
-router.post('/register',function(request,response){
+router.post('/index/register',function(request,response){
     console.log("BEGINNING OF register action reached");
     var username = request.body.username;
     var password = request.body.password;
@@ -99,15 +99,19 @@ router.post('/register',function(request,response){
     newUser.lastname = lastname;
     
     //save user
-    newUser.insertOne(function(err,savedUser){
+//    newUser.collection.insertOne(function(err,savedUser){
+      User.collection.insertOne(function(err,savedUser){
         if(err){
             //log error if one exists
             console.log(err);
             return response.status(500).send();
         }
         //return successful status 
+        
+       response.send(`User: ${newUser.username} added!`);
         console.log("loginpage.js register action reached end");
         return response.status(200).send();
+        //response.redirect('/dashboard')
     });
 });
 

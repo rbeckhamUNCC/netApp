@@ -76,6 +76,8 @@ app.use('/assets', express.static('assets'));
 
 //link to the login route
 app.use('/login', login);
+//localhost:8080/login
+// localhost:8080/login/index/register
 //link to the login route
 //app.use('/register', login);
 
@@ -86,8 +88,8 @@ app.use('/login', login);
 app.get('/', (request, response) => {
     
     var users = [
-        {_id: 1, username: "preloadLoadUp3", password: "1234", firstname: "pre", lastname: "last"},
-        {_id: 2,username: "preloadLoadUp2", password: "1234", firstname: "pr2e", lastname: "last2"}
+        {_id: 1, username: "matt1", password: "1234", firstname: "m1", lastname: "m1"},
+        {_id: 2,username: "rob2", password: "1234", firstname: "r2", lastname: "b2"}
     ];
     
     User.collection.insertMany(users, function (err, docs) {
@@ -183,30 +185,30 @@ app.get('/deleteall', function(request,response){
     });
 });
 
-app.post('/index/register',function(request,response){
-    var userName = request.body.userName;
-    var password = request.body.password;
-    var firstName = request.body.firstName;
-    var lastName = request.body.lastName;
- 
-    var newUser = new User({
-     username : userName,
-     password : password,
-     firstname : firstName,
-     lastname : lastName
-    });
-    console.log(newUser.username);
-    console.log(request.body);
- 
-    User.collection.insertOne(newUser, function (err, docs) {
-     if (err){ 
-         return console.error(err);
-     } else {
-       console.log("New user added");
-       response.send(`User: ${newUser.username} added!`)
-     }
-   });
- });
+//app.post('/index/register',function(request,response){
+//    var userName = request.body.userName;
+//    var password = request.body.password;
+//    var firstName = request.body.firstName;
+//    var lastName = request.body.lastName;
+// 
+//    var newUser = new User({
+//     username : userName,
+//     password : password,
+//     firstname : firstName,
+//     lastname : lastName
+//    });
+//    console.log(newUser.username);
+//    console.log(request.body);
+// 
+//    User.collection.insertOne(newUser, function (err, docs) {
+//     if (err){ 
+//         return console.error(err);
+//     } else {
+//       console.log("New user added");
+//       response.send(`User: ${newUser.username} added!`);
+//     }
+//   });
+// });
 
 //initialize and listen on a port
 app.listen(port, () => {
