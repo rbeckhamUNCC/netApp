@@ -12,15 +12,15 @@ var User = require('../lib/User'); //correct file path.
 //router.use(bodyParser.urlencoded({extended: false}));
 
 
-// DO I NEED TO IMPORT LOGIN.HTML? HOW TO CONNECT THIS PAGE AND LOGIN.HTML????????????????  
+// DO I NEED TO IMPORT LOGIN.HTML? HOW TO CONNECT THIS PAGE AND LOGIN.HTML????????????????
 //import the login route&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 //const login = require('../views/login');
 //router.use('/login', login);
 
 
 
-//require the express library                   
-//const express = require('express');                 
+//require the express library
+//const express = require('express');
 //initialize a new application
 //const app = express();
 //set up a port
@@ -58,7 +58,7 @@ const mongoose = require('mongoose');
 // how to associate specific database
 mongoose.connect('mongodb://localhost/groupmeet',
 {
-    useCreateIndex: true, 
+    useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -75,29 +75,40 @@ mongoose.connect('mongodb://localhost/groupmeet',
 //}));
 //app.use(bodyParser.urlencoded({extended : true}));
 //app.use(bodyParser.json());
-//******************************************************************************************************************* 
- 
+//*******************************************************************************************************************
+
 
 
 // Get login page
 router.get('/',function(request,response, next){
-response.sendFile(path.resolve('./views/login.html'));
+  response.sendFile(path.resolve('./views/login.html'));
+});
+
+router.get('/userInfo', function(request, response) {
+
 });
 
 //register new user and save to database
 router.post('/index/register',function(request,response){
+    //route flag
     console.log("BEGINNING OF register action reached");
+
     var username = request.body.username;
     var password = request.body.password;
     var firstname = request.body.firstname;
     var lastname = request.body.lastname;
-    
+
+    console.log(`username ${username}`);
+    console.log(`password: ${password}`);
+    console.log(`firstname: ${firstname}`);
+    console.log(`lastname: ${lastname}`);
+
     var newUser = new User();
     newUser.username = username;
     newUser.password = password;
     newUser.firstname = firstname;
     newUser.lastname = lastname;
-    
+
     //save user
 //    newUser.collection.insertOne(function(err,savedUser){
       User.collection.insertOne(function(err,savedUser){
@@ -106,12 +117,12 @@ router.post('/index/register',function(request,response){
             console.log(err);
             return response.status(500).send();
         }
-        //return successful status 
-        
+        //return successful status
+
        response.send(`User: ${newUser.username} added!`);
         console.log("loginpage.js register action reached end");
         return response.status(200).send();
-        //response.redirect('/dashboard')
+        response.sendFile(path.resolve('./views/dashboard.html'));
     });
 });
 

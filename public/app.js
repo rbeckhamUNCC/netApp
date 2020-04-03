@@ -76,8 +76,10 @@ app.use('/assets', express.static('assets'));
 
 //link to the login route
 app.use('/login', login);
+
 //localhost:8080/login
 // localhost:8080/login/index/register
+
 //link to the login route
 //app.use('/register', login);
 
@@ -86,14 +88,14 @@ app.use('/login', login);
 
 //default route for the landing page
 app.get('/', (request, response) => {
-    
+
     var users = [
         {_id: 1, username: "matt1", password: "1234", firstname: "m1", lastname: "m1"},
         {_id: 2,username: "rob2", password: "1234", firstname: "r2", lastname: "b2"}
     ];
-    
+
     User.collection.insertMany(users, function (err, docs) {
-          if (err){ 
+          if (err){
               return console.error(err);
           } else {
             console.log("Multiple documents inserted to Collection");
@@ -121,7 +123,7 @@ app.get('/dbtest', function(request,response){
 
 //TESTACTION add user individual user to test db
 app.post('/addname/:firstname/:lastname', function(request, response){
-    
+
     var first = request.params.firstname;
     var last = request.params.lastname;
     var user = new User();
@@ -190,7 +192,7 @@ app.get('/deleteall', function(request,response){
 //    var password = request.body.password;
 //    var firstName = request.body.firstName;
 //    var lastName = request.body.lastName;
-// 
+//
 //    var newUser = new User({
 //     username : userName,
 //     password : password,
@@ -199,9 +201,9 @@ app.get('/deleteall', function(request,response){
 //    });
 //    console.log(newUser.username);
 //    console.log(request.body);
-// 
+//
 //    User.collection.insertOne(newUser, function (err, docs) {
-//     if (err){ 
+//     if (err){
 //         return console.error(err);
 //     } else {
 //       console.log("New user added");
