@@ -2,46 +2,17 @@
 var express = require('express');
 var router = express();
 var User = require('../lib/User'); //correct file path.
-//var session = require('express-session');
-////initialize a new application
-//const app = express();
-
-//var path = require('path');
-////parses the body so we can get the username and password for login
-//var bodyParser = require('body-parser');
-//router.use(bodyParser.urlencoded({extended: false}));
-
-
-// DO I NEED TO IMPORT LOGIN.HTML? HOW TO CONNECT THIS PAGE AND LOGIN.HTML????????????????
-//import the login route&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-//const login = require('../views/login');
-//router.use('/login', login);
-
-
-
-//require the express library
-//const express = require('express');
-//initialize a new application
-//const app = express();
 //set up a port
 const port = process.env.PORT || 8080;
 //import mongo
 const testMongo = require('./mongo');
-//import the index route, CHANGED TO LOGINPAGE.JS
-//const index = require('./routes/index.js');
-//import the login route
-//const login = require('./routes/loginpage.js');
-// tests to see if adding to db is possible
-//testMongo.testAddToDB();
-//var users = require('./routes/users');
 var path = require('path');
 //configure app to use session
 var session = require('express-session');
 //allows extraction of form data
 var bodyParser = require('body-parser');
-//router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
-router.use(express.urlencoded({extended: true}));
+router.use(express.urlencoded({extended: false}));
 //register session to app
 router.use(session(
         {
@@ -63,33 +34,13 @@ mongoose.connect('mongodb://localhost/groupmeet',
     useUnifiedTopology: true
 });
 
-
-
-
-//*****************************************************************************************************************
-////var app = express();
-//app.use(session({
-//	secret: 'secret',
-//	resave: true,
-//	saveUninitialized: true
-//}));
-//app.use(bodyParser.urlencoded({extended : true}));
-//app.use(bodyParser.json());
-//*******************************************************************************************************************
-
-
-
 // Get login page
-router.get('/',function(request,response, next){
+router.get('/',(request,response,next) => {
   response.sendFile(path.resolve('./views/login.html'));
 });
 
-router.get('/userInfo', function(request, response) {
-
-});
-
 //register new user and save to database
-router.post('/index/register',function(request,response){
+router.post('/signup',function(request,response){
     //route flag
     console.log("BEGINNING OF register action reached");
 
@@ -111,7 +62,7 @@ router.post('/index/register',function(request,response){
 
     //save user
 //    newUser.collection.insertOne(function(err,savedUser){
-      User.collection.insertOne(function(err,savedUser){
+      User.collection.insertOne(newUser,function(err,savedUser){
         if(err){
             //log error if one exists
             console.log(err);
