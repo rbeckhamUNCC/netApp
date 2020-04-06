@@ -1,10 +1,23 @@
 var User = require('./lib/User'); //correct file path.
+////require the express library
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+//allows extraction of form data
+var bodyParser = require('body-parser');
+//configure app to use session
+var expressValidator = require('express-validator');
+//configure app to use session
+var expressSession = require('express-session');
+var hbs = require('express-handlebars');
+
+const register = require('./routes/register.js');
 
 
-//require the express library
-const express = require('express');
-//initialize a new application
-const app = express();
+
+//__MAYBE I NEED THESE FEW LINES????_______________________________________
 //set up a port
 const port = process.env.PORT || 8080;
 //import mongo
@@ -12,30 +25,80 @@ const testMongo = require('./routes/mongo');
 //import the index route, CHANGED TO LOGINPAGE.JS
 //const index = require('./routes/index.js');
 //import the login route
-const login = require('./routes/loginpage.js');
+
 // tests to see if adding to db is possible
 testMongo.testAddToDB();
-//var users = require('./routes/users');
-var path = require('path');
-//configure app to use session
-var session = require('express-session');
-//allows extraction of form data
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: false}));
+//____________________________________________
+
+
+var app = express();
+
+//// view engine setup ******************FOR AFTER DECISION OF TEMPLATE, NEXT 2 LINES
+//app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views'}));
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'hbs');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(expressValidator());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 //register session to app
-app.use(session(
+app.use(expressSession(
         {
             secret:"67i66igfi6&*6i%$&%^&U",
             resave: false,
-            saveUninitialized: true
+            saveUninitialized: false
         }
 ));
 
-app.use(express.static(path.join(__dirname, 'public')));
+//Route Specification
+//specifying the static route
+app.use('/assets', express.static('assets'));
+//link to the registration route
+app.use('/register', register);
+//link to the login route
+app.use('/login', register);
 
+// catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
+
+// error handlers
+
+//// development error handler
+//// will print stacktrace
+//if (app.get('env') === 'development') {
+//  app.use(function(err, req, res, next) {
+//    res.status(err.status || 500);
+//    res.render('error', {
+//      message: err.message,
+//      error: err
+//    });
+//  });
+//}
+//
+//// production error handler
+//// no stacktraces leaked to user
+//app.use(function(err, req, res, next) {
+//  res.status(err.status || 500);
+//  res.render('error', {
+//    message: err.message,
+//    error: {}
+//  });
+//});
+
+
+
+
+// mongoose connoection*************IS THIS NEEDED HERE OR DO WE C0NNECT THROUGH REQUESTS???
 const mongoose = require('mongoose');
-
 // how to associate specific database
 mongoose.connect('mongodb://localhost/groupmeet',
 {
@@ -69,45 +132,28 @@ var UserModel = mongoose.model('usermodel', userSchema2);
 //setup preloaded users version
 var UserModel2 = mongoose.model('preloadedUser', userSchema2);
 
-
-//!! Will need to move these to the Routes folder eventually!!
-//specifying the static route
-app.use('/assets', express.static('assets'));
-
-//link to the login route
-app.use('/login', login);
-
-//localhost:8080/login
-// localhost:8080/login/index/register
-
-//link to the login route
-//app.use('/register', login);
-
-////link to the index route, CHANGED TO LOGINPAGE.JS
-//app.use('/index', index);
-
 //default route for the landing page
-app.get('/', (request, response) => {
-
-    var users = [
-        {_id: 1, username: "matt1", password: "1234", firstname: "m1", lastname: "m1"},
-        {_id: 2,username: "rob2", password: "1234", firstname: "r2", lastname: "b2"}
-    ];
-
-    User.collection.insertMany(users, function (err, docs) {
-          if (err){
-              return console.error(err);
-          } else {
-            console.log("Multiple documents inserted to Collection");
-          }
-        });
-        //send to landing page
+app.get('/', function(request, response) {
+      // [RELOAD USERS, DELETE LATER?
+//    var users = [
+//        {_id: 1, username: "matt1", password: "1234", firstname: "m1", lastname: "m1"},
+//        {_id: 2,username: "rob2", password: "1234", firstname: "r2", lastname: "b2"}
+//    ];
+//
+//    User.collection.insertMany(users, function (err, docs) {
+//          if (err){
+//              return console.error(err);
+//          } else {
+//            console.log("Multiple documents inserted to Collection");
+//          }
+//        });
+//        //send to landing page
     response.sendFile(__dirname + '/views/landing.html');
 });
 
-app.get('/login', function(request, response) {
-    response.sendFile(path.join(__dirname + '/views/login.html'));
-});
+//app.get('/login', function(request, response) {
+//    response.sendFile(path.join(__dirname + '/views/login.html'));
+//});
 
 //default route for the landing page
 app.get('/dashboard', (request, response) => {
@@ -187,32 +233,11 @@ app.get('/deleteall', function(request,response){
     });
 });
 
-//app.post('/index/register',function(request,response){
-//    var userName = request.body.userName;
-//    var password = request.body.password;
-//    var firstName = request.body.firstName;
-//    var lastName = request.body.lastName;
-//
-//    var newUser = new User({
-//     username : userName,
-//     password : password,
-//     firstname : firstName,
-//     lastname : lastName
-//    });
-//    console.log(newUser.username);
-//    console.log(request.body);
-//
-//    User.collection.insertOne(newUser, function (err, docs) {
-//     if (err){
-//         return console.error(err);
-//     } else {
-//       console.log("New user added");
-//       response.send(`User: ${newUser.username} added!`);
-//     }
-//   });
-// });
-
 //initialize and listen on a port
 app.listen(port, () => {
     console.log(`App has started and is listening on port ${port}`);
 });
+
+
+// ??????????
+//module.exports = app;
