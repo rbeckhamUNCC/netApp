@@ -43,7 +43,7 @@ router.get('/',(request,response,next) => {
 router.post('/signup',function(request,response){
     //route flag
     console.log("BEGINNING OF register action reached");
-
+//remo
     var username = request.body.username;
     var password = request.body.password;
     var firstname = request.body.firstname;
