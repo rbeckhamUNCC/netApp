@@ -5,6 +5,8 @@ const app = express();
 //set up a port
 const port = process.env.PORT || 8080;
 
+app.set('view engine', 'ejs');
+
 //specifying the static route
 app.use('/assets', express.static('assets'));
 
@@ -14,11 +16,10 @@ app.get('/', (request, response) => {
 });
 
 app.use('/dashboard', function(request, response){
-    response.sendFile(__dirname + '/views/dashboard.html');
+    response.render('dashboard');
 });
 
 //initialize and listen on a port
 app.listen(port, () => {
     console.log(`App has started and is listening on port ${port}`);
 });
-

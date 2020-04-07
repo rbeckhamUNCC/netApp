@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navigation</title>
+    <link rel="stylesheet" href="/assets/styles.css"/>
+  </head>
+  <body>
+    <!-- top navigation -->
+    <div class="navigation-top">
+      <div class="image-box">
+        <!-- Image for Logo -->
+        <a href="#"><img src="/assets/small_logo_header.png" alt="groupmeet logo" width="100px" height="100px"></a>
+      </div>
+
+      <!-- Main navigation -->
+      <nav class="nav-right">
+        <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Availability</a></li>
+          <li><a href="#">Account</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- side navigation -->
+    <div class="navigation-side">
+      <!-- put in the profile picture from the database -->
+      <img src="/assets/avatar.png" alt="avatar" width="100px" height="100px">
+
+      <!-- for name and email - add from database -->
+      <h4 id="name">Matthew McCoy</h4>
+
+      <div class="">
+        <a href="#" class="side-button">Sign Out</a>
+        <hr id="line">
+        <a href="#" class="side-button">Add Group</a>
+      </div>
+
+      <div class="between"></div>
+
+      <!-- Use a for each loop to loop through the classes -->
+      <a href="#" class="side-button courses">Capstone</a>
+      <a href="#" class="side-button courses">ITIS 3320</a>
+      <a href="#" class="side-button courses">ITIS 4166</a>
+      <a href="#" class="side-button courses">ITIS 4420</a>
+    </div>
+  </body>
+</html>
