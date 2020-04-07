@@ -97,6 +97,7 @@ header#landing {
     color: black;
     font-size: 22px;
     padding: 5px 10px;
+    background-color: #fbe3d4;
 }
 
 #dashboard {
@@ -105,6 +106,7 @@ header#landing {
 
 #recentActivityHeader {
     color: black;
+    background-color: #fbe3d4;
     font-size: 16px;
     padding: 15px;
     text-align: center;
@@ -116,14 +118,17 @@ header#landing {
     height: 400px;
     width: 853px;
 }
-<<<<<<< HEAD
 
 #availabilityHeader {
   border-radius: 10px;
-  background: red;
+  background-color: #A34034;
   color: white;
   font-size: 20px;
   padding: 0px 5px;
+}
+
+#availabilityGrid {
+  background-color: #fbe3d4;
 }
 
 #accountHeader {
@@ -156,5 +161,61 @@ header#landing {
   color: black;
   font-size: 12px;
 }
-=======
->>>>>>> ace21eeb1b0519b332cacde320f836445c1bce48
+
+.groupmeet-btn {
+  text-align: center;
+  padding: 5px 8px;
+  margin: 15px 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.accountBtns  {
+  background-color: gray;
+  color: white;
+}
+
+/* CSS for groupdashboard.html */
+.grid_6 {
+  width: 48%;
+  display: inline;
+  float: left;
+  position: relative;
+}
+
+#urlBox {
+  border: 1px solid black;
+  margin-right: 30px;
+}
+
+#commentBox {
+  border: 1px solid black;
+}
+
+#boxHeader {
+  color: black;
+  background-color: #fbe3d4;
+  font-size: 16px;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+.commentBtn, .urlBtn {
+  background-color: rgb(150, 45, 32);
+  color: white;
+}
+
+.urlBtn {
+  padding-right: 22px;
+  padding-left: 22px;
+}
+
+.groupLinks {
+  padding-left: 5px;
+}
+
+#url, #comment {
+  line-height: 25px;
+  border: 1px solid  rgb(150, 45, 32);;
+}
