@@ -9,6 +9,6 @@ const MeetingSchema = new Schema({
 
 }, { collection: 'meetings' })
 
-const Meeting = mongoose.model('meeting', MeetingSchema);
+const Meeting = mongoose.model('meetings', MeetingSchema);
 
 module.exports = Meeting
