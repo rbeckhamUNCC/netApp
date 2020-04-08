@@ -11,8 +11,8 @@ const UserSchema = new Schema({
     //image will be a file
     profilePic: String
 
-}, { collection: 'users' })
+})
 
-const User = mongoose.model('user', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 module.exports = User

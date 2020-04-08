@@ -3,12 +3,13 @@ const Schema = mongoose.Schema;
 
 const MeetingSchema = new Schema({
     meetingName: String,
-    maker: User,
-    attendees: Array,
+    group: { type: Schema.Types.ObjectId, ref: 'Group'},
+    maker: { type: Schema.Types.ObjectId, ref: 'User'},
+    attendees: [{type: Schema.Types.ObjectId, ref: 'User'}],
     meetingTime: Date
 
-}, { collection: 'meetings' })
+})
 
-const Meeting = mongoose.model('meetings', MeetingSchema);
+const Meeting = mongoose.model('Meeting', MeetingSchema);
 
 module.exports = Meeting

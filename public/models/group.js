@@ -13,8 +13,8 @@ const GroupSchema = new Schema({
     //groupImage: String,
     // No more files files: Array
         
-}, { collection: 'groups' })
+})
 
-const Group = mongoose.model('groups', GroupSchema);
+const Group = mongoose.model('Group', GroupSchema);
 
 module.exports = Group

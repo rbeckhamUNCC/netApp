@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 
+// "/group/newGroup"
 var Group = require("../../models/group");
-router.use(bodyParser.urlencoded());
 router.use(bodyParser.urlencoded({extended: true}));
 
 router.post('/newGroup',function(request,response){

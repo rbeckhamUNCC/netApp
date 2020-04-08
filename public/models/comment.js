@@ -7,8 +7,8 @@ const CommentSchema = new Schema({
     created: {type: Date, default: Date.now},
     isReplyTo: {type: Schema.Types.ObjectId, ref: 'Comment'}
 
-}, { collection: 'comments' })
+})
 
-const Comment = mongoose.model('comment', CommentSchema);
+const Comment = mongoose.model('Comment', CommentSchema);
 
 module.exports = Comment
