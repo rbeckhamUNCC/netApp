@@ -110,6 +110,20 @@ app.get('/dashboard', (request, response) => {
     response.render('dashboard');
 });
 
+
+app.get('/groupdashboard', function(request, response) {
+    response.sendFile(path.join( __dirname + '/views/groupdashboard.html'));
+});
+
+Response.sendFile('./views/groupdashboard.html');
+
+app.get('/MyAvailability', function(request, response) {
+    response.sendFile(path.join(__dirname + '/views/MyAvailability.html'));
+});
+
+app.get('/MyAccount', function(request, response) {
+    response.sendFile(path.join(__dirname + '/views/MyAccount.html'));
+});
 // robs practice
 app.get('/dbtest', function(request,response){
 //    var responseObject = {message:"hello"};

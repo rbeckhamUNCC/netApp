@@ -162,7 +162,6 @@ header#landing {
   font-size: 12px;
 }
 
-<<<<<<< HEAD
 .groupmeet-btn {
   text-align: center;
   padding: 5px 8px;
@@ -219,7 +218,6 @@ header#landing {
 #url, #comment {
   line-height: 25px;
   border: 1px solid  rgb(150, 45, 32);;
-=======
 /* Add CSS for _TopNavigationPartial */
 .navigation-top {
   overflow: hidden;
@@ -319,5 +317,4 @@ header#landing {
 .navigation-side .courses {
   margin-bottom: 40px;
   padding: 10px 10px;
->>>>>>> mccoy_temp
 }
