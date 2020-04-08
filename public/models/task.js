@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 
 const TaskSchema = new Schema({
     taskName: String,
-    maker: User,
-    group: Group,
+    maker: {type: Schema.Types.ObjectId, ref: 'User'},
+    group: {type: Schema.Types.ObjectId, ref: 'Group'},
     description: String,
     status: String
 

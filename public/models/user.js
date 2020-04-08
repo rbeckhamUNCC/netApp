@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     firstName: String,
     lastName: String,
-    groups: Array,
+    groups: [{type: Schema.Types.ObjectId, ref: 'Group'}],
     email: String,
     password: String,
     availableTimes: Array,
