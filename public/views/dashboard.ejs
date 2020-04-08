@@ -11,12 +11,12 @@ and open the template in the editor.
     <link rel="stylesheet" href="/assets/styles.css">
     <link rel="icon" href="/assets/favicon.png">
     <link rel="stylesheet" href="/assets/styles.css"/>
-    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
-    <link rel="stylesheet" href="../assets/styles.css" type="text/css"/>
 
     <title>Dashboard</title>
 </head>
 <body>
+<<<<<<< HEAD:public/views/dashboard.ejs
+    <%- include('./partials/_TopNavigationPartial.html') %>
     <div class="grid_12">
          <header id="dashboard">
                 <h1 id="dashboardHeader">This Week's Meeting Time</h1>
@@ -38,3 +38,28 @@ and open the template in the editor.
                 <h2 id="recentActivityHeader">Recent Activity</h2>
             </div>
         </div>
+=======
+  <!-- This is where the navigation bar will go -->
+
+  <div class="grid_12">
+    <header id="dashboard">
+      <h1 id="dashboardHeader">This Week's Meeting Time</h1>
+    </header>
+    <div id="meetingTimes">
+      <table>
+      <tr>
+      <td class="weekCalendar">Mon</td>
+      <td class="weekCalendar">Tues</td>
+      <td class="weekCalendar">Wed</td>
+      <td class="weekCalendar">Thurs</td>
+      <td class="weekCalendar">Fri</td>
+      <td class="weekCalendar">Sat</td>
+      <td class="weekCalendar">Sun</td>
+      </tr>
+      </table>
+    </div>
+    <div id='recentActivity'>
+      <h2 id="recentActivityHeader">Recent Activity</h2>
+    </div>
+  </div>
+>>>>>>> 39e1eb9a96964e20334cf11543f936b607e6e947:public/views/dashboard.html

@@ -162,6 +162,7 @@ header#landing {
   font-size: 12px;
 }
 
+<<<<<<< HEAD
 .groupmeet-btn {
   text-align: center;
   padding: 5px 8px;
@@ -218,4 +219,105 @@ header#landing {
 #url, #comment {
   line-height: 25px;
   border: 1px solid  rgb(150, 45, 32);;
+=======
+/* Add CSS for _TopNavigationPartial */
+.navigation-top {
+  overflow: hidden;
+  background-color: rgb(241, 149, 95);
+  padding: 0 20px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation-top img {
+  padding: 5px 0 5px 5px;
+}
+
+.navigation-top .image-box {
+  width: 134px;
+  background-color: rgb(150, 45, 32);
+}
+
+.navigation-top .nav-right {
+  padding-right: 30px;
+}
+
+.navigation-top ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.navigation-top li {
+  padding-left: 50px;
+}
+
+.navigation-top a {
+  text-decoration: none;
+  padding-left: 10px;
+  font-size: 25px;
+  color: rgb(150, 45, 32);
+}
+
+.navigation-top a:hover {
+  color: white;
+}
+
+.navigation-top .active {
+  color: white;
+}
+
+.navigation-side {
+  height: 100%;
+  width: 118px;
+  position: fixed;
+  z-index: 1;
+  background-color: rgb(241, 149, 95);
+  overflow-x: hidden;
+  padding: 15px 8px 0 8px;
+}
+
+.navigation-side img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  border-radius: 50%;
+}
+
+.navigation-side #name {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 15px;
+  color: rgb(150, 45, 32);
+}
+
+.navigation-side #line {
+  border: 1px solid rgb(150, 45, 32);
+  width: 90%;
+}
+
+.navigation-side .side-button {
+  display: block;
+  text-align: center;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-decoration: none;
+  background-color: rgb(150, 45, 32);
+  color: white;
+  text-decoration: none;
+  margin: 15px 2px;
+  cursor: pointer;
+}
+
+.navigation-side .between {
+  padding: 5px 0;
+}
+
+.navigation-side .courses {
+  margin-bottom: 40px;
+  padding: 10px 10px;
+>>>>>>> mccoy_temp
 }
