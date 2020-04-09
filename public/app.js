@@ -106,16 +106,14 @@ app.get('/login', function(request, response) {
 });
 
 //default route for the landing page
-app.get('/dashboard', (request, response) => {
+app.get('/dashboard', function(request, response) {
     response.render('dashboard');
 });
 
 
 app.get('/groupdashboard', function(request, response) {
-    response.sendFile(path.join( __dirname + '/views/groupdashboard.html'));
+    response.render('groupdashboard');
 });
-
-Response.sendFile('./views/groupdashboard.html');
 
 app.get('/MyAvailability', function(request, response) {
     response.sendFile(path.join(__dirname + '/views/MyAvailability.html'));
