@@ -1,24 +1,33 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-
-router.use(bodyParser.urlencoded());
+var User = require("../../models/user");
 router.use(bodyParser.urlencoded({extended: true}));
 
-//Copied from newGroup, needs to incorporate methods done in rob branch
-// router.post('/newUser',function(request,response){
-//     console.log(request.body)
+//   /group/newUser
+router.post('/newUser',function(request,response){
+    console.log("/newUser reached:" + request.body)
  
-//      Group.collection.insertOne(newGroup,function(err,savedGroup){
-//        if(err){
-//            console.log(err);
-//            return response.status(500).send();
-//        }
-//       response.send(`Group: ${newGroup.groupName} added!`);
-//       console.log(savedGroup.ops[0].groupName);
-//       console.log(`Group: ${newGroup.groupName} added!`);
-//        return response.status(200).send();
-//    });
-// });
+    var newUser = new User({
+        firstName: request.body.firstName,
+        lastName: request.body.lastName,
+        groups: [],
+        email: request.body.email,
+        password: request.body.password,
+        availableTimes: [],
+        //image will be a file
+        profilePic: "picture will be added as future feature"
+    });
+ 
+     User.collection.insertOne(newUser,function(err,savedUser){
+       if(err){
+           console.log(err);
+           return response.status(500).send();
+       }
+       response.send(`User: ${newUser.email} added!`);
+       console.log(`User: ${savedUser.ops[0].email} added!`);
+       return response.status(200).send();
+   });
+});
 
 module.exports = router

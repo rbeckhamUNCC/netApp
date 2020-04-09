@@ -10,6 +10,7 @@ module.exports = {
 
     const options = {
         keepAlive: 1,
+        useCreateIndex: true,
         useUnifiedTopology: true,
         useNewUrlParser: true,
       };

@@ -1,6 +1,9 @@
-// const MainUserRouter = require("express").Router();
+const MainUserRouter = require("express").Router();
 
-// MainUserRouter.route("/newUser")
-//     .post(require("./newUser"))
+MainUserRouter.route("/newUser")
+    .post(require("./newUser"))
 
-// module.exports = MainUserRouter;
+    MainUserRouter.route("/login")
+    .post(require("./login"))
+
+module.exports = MainUserRouter;
