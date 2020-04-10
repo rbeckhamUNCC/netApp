@@ -80,7 +80,7 @@ header#landing {
 
 .grid_12 {
     display: inline;
-    float: left;
+    /* float: left;  was being ignored because of display: inline; above*/
     position: relative;
     margin-left: 10px;
     margin-right: 10px;
@@ -177,9 +177,9 @@ header#landing {
 
 /* CSS for groupdashboard.html */
 .grid_6 {
-  width: 48%;
+  /* width: 48%; */
   display: inline;
-  float: left;
+  /* float: left; */
   position: relative;
 }
 
