@@ -7,16 +7,26 @@
     <link rel="icon" href="/assets/favicon.png">
     <title>GroupMeet - Welcome</title>
 </head>
-<body>
+<body class="registerLoginBody">
 
-    <h2>Login</h2>
-    
-    <form name="login-form" method="POST" action="/user/login">
-        <label for="email">Enter Your email</label><br>
-      <input type="email" name="email" id="email" placeholder="Enter a email..." required>
-      <input type="text" name="password" id="password" placeholder="Enter desired password..." required>
-      <input type="submit" value="submit">
-    </form>
+    <div class="registerAndLoginBox">
+      <h2>Sign in</h2>
 
+      <form name="register-form" method="POST" action="/user/login">
+        <div class="input-box">
+          <input type="email" name="email" id="email" placeholder="Email Address" required>
+        </div>
+
+        <div class="input-box">
+          <input type="password" name="password" id="password" placeholder="Password" required>
+        </div>
+
+        <input class="registerAndLoginButton" type="submit" value="Sign in">
+      </form>
+
+      <div class="anchorterms">
+        <a class="terms" href="#">Forgot Password?</a>
+      </div>
+    </div>
 </body>
 </html>
