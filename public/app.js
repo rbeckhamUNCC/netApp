@@ -61,9 +61,9 @@ app.use(expressSession(
 //specifying the static route
 app.use('/assets', express.static('assets'));
 //link to the registration route
-app.use('/register', register);
+// app.use('/register', register);
 //link to the login route
-app.use('/login', register);
+//app.use('/login', register);
 
 //default route for the landing page
 app.get('/', function(request, response) {     
