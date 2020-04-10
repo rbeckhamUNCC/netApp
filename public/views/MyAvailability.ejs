@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css"/>
+
+    <title>My Availability</title>
+</head>
+<body id="availabilityBody">
+  <%- include('./partials/_TopNavigationPartial.html') %>
+    <div class="grid_12" id="availabilityGrid">
+      <header id="myAvailability">
+          <h1 id="availabilityHeader">My Availability</h1>
+          <button type="submit" value="Submit" class="groupmeet-btn accountBtns" style="wrap">Edit</button> 
+      </header>
+        <div class="meetingTimes">
+          <table>
+              <tr>
+                  <td class="weekCalendar">Mon</td>
+                  <td class="weekCalendar">Tues</td>
+                  <td class="weekCalendar">Wed</td>
+                  <td class="weekCalendar">Thurs</td>
+                  <td class="weekCalendar">Fri</td>
+                  <td class="weekCalendar">Sat</td>
+                  <td class="weekCalendar">Sun</td>
+              </tr>
+              <tr>
+                  <th class="timeRow"></th>
+                  <th class="timeRow"></th>
+                  <th class="timeRow"></th>
+                  <th class="timeRow"></th>
+                  <th class="timeRow"></th>
+                  <th class="timeRow"></th>
+                  <th class="timeRow"></th>
+              </tr>
+          </table>
+        </div>
+    </div>

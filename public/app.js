@@ -72,7 +72,7 @@ app.get('/register',(request,response,next) => {
   });
 
 //default route for the landing page
-app.get('/', function(request, response) {     
+app.get('/', function(request, response) {
     response.sendFile(__dirname + '/views/landing.html');
 });
 
@@ -86,14 +86,13 @@ app.get('/groupdashboard', function(request, response) {
     response.render('groupdashboard');
 });
 
-app.get('/MyAvailability', function(request, response) {
-    response.sendFile(path.join(__dirname + '/views/MyAvailability.html'));
-});
-
 app.get('/MyAccount', function(request, response) {
-    response.sendFile(path.join(__dirname + '/views/MyAccount.html'));
+    response.render('MyAccount');
 });
 
+app.get('/MyAvailability', function(request, response) {
+    response.render('MyAvailability');
+});
 //initialize and listen on a port
 app.listen(port, () => {
     console.log(`App has started and is listening on port ${port}`);

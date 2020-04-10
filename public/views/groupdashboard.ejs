@@ -14,7 +14,7 @@ and open the template in the editor.
     <link rel="stylesheet" href="../assets/styles.css" type="text/css">
     <link rel="stylesheet" href="../assets/styles.css" type="text/css"/>
 
-    <title>Dashboard</title>
+    <title>Group Dashboard</title>
 </head>
 <body>
     <%- include('./partials/_TopNavigationPartial.html') %>
@@ -34,22 +34,37 @@ and open the template in the editor.
                         <td class="weekCalendar">Sat</td>
                         <td class="weekCalendar">Sun</td>
                     </tr>
+                    <tr>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                    </tr>
                 </table>
             </div>
             <div class="groupLinks">
               <div id="addURL">
-                <input size="100" placeholder="URL: https://app.groupme.com/chats" type="text" id="url" name="url">
+                <input size="100" placeholder="URL: https://app.groupme.com/chats" type="text" id="urlinput" name="url">
                 <button type="submit" value="Submit" class="groupmeet-btn urlBtn">Add URL</button>
               </div>
               <div id="addComment">
-                <input size="100" placeholder="COMMENT: when is our assignment due?" type="text" id="comment" name="comment">
+                <input size="100" placeholder="COMMENT: when is our assignment due?" type="text" id="commentinput" name="comment">
                 <button type="submit" value="Submit" class="groupmeet-btn commentBtn">Add Comment</button>
               </div>
             </div>
-            <div class="grid_6" id="urlBox">
+          <div class="availabilityWrapper">
+            <div class="grid_6">
                 <h2 id="boxHeader">Urls</h2>
+                <div id="urlBox"></div>
             </div>
-            <div class="grid_6" id="commentBox">
+            <div class="grid_6">
                 <h2 id="boxHeader">Comments</h2>
-
-        </div>
+                <div id="commentBox"></div>
+            </div>
+          </div>
+      </div>
+    </body>
+</html>
