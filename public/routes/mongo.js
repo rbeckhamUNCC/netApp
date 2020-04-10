@@ -1,6 +1,6 @@
 
 module.exports = {
-    testAddToDB: function() {
+    connectToDB: function() {
     var express = require('express');
     var router = express.Router();
 
@@ -14,8 +14,8 @@ module.exports = {
         useUnifiedTopology: true,
         useNewUrlParser: true,
       };
-    mongoose.connect( process.env.MONGODB_URI, options || 'mongodb://localhost/groupmeet', options);
-
+   
+    mongoose.connect( 'mongodb://localhost/groupmeet' || process.env.MONGODB_URI, options);
     mongoose.connection.once('open', function(){
         console.log('connected to groupmeet')
     }).on('error', function(err){

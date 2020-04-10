@@ -23,10 +23,10 @@ const register = require('./routes/register.js');
 //set up a port
 const port = process.env.PORT || 8080;
 //import mongo
-const testMongo = require('./routes/mongo');
+const mongo = require('./routes/mongo');
 
 // tests to see if adding to db is possible
-//testMongo.testAddToDB();
+mongo.connectToDB();
 //____________________________________________
 app.set('view engine', 'ejs');
 
@@ -99,7 +99,3 @@ app.listen(port, () => {
     console.log(`App has started and is listening on port ${port}`);
 });
 
-
-if (process.env.NODE_ENV === 'production') {
-
-}
