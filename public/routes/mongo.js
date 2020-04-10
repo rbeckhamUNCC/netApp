@@ -14,7 +14,7 @@ module.exports = {
         useUnifiedTopology: true,
         useNewUrlParser: true,
       };
-    mongoose.connect('mongodb://localhost/groupmeet', options);
+    mongoose.connect( process.env.MONGODB_URI, options || 'mongodb://localhost/groupmeet', options);
 
     mongoose.connection.once('open', function(){
         console.log('connected to groupmeet')

@@ -26,7 +26,7 @@ const port = process.env.PORT || 8080;
 const testMongo = require('./routes/mongo');
 
 // tests to see if adding to db is possible
-testMongo.testAddToDB();
+//testMongo.testAddToDB();
 //____________________________________________
 app.set('view engine', 'ejs');
 
@@ -98,3 +98,8 @@ app.get('/MyAccount', function(request, response) {
 app.listen(port, () => {
     console.log(`App has started and is listening on port ${port}`);
 });
+
+
+if (process.env.NODE_ENV === 'production') {
+
+}
