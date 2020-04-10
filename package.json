@@ -8,7 +8,7 @@
     "url": "git+https://github.com/mmccoy23/groupmeet.git"
   },
   "scripts": {
-    "start": "node public/app.js"
+    "start": "node app.js"
   },
   "author": "GroupMeet",
   "license": "ISC",

@@ -1,21 +1,21 @@
 
-var express = require('express');
+var express = require('./node_modules/express');
 var path = require('path');
 var app = express();
 
-require("./routes")(app);
+require("./public/routes")(app);
 
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+var logger = require('./node_modules/morgan');
+var cookieParser = require('./node_modules/cookie-parser');
 //allows extraction of form data
-var bodyParser = require('body-parser');
+var bodyParser = require('./node_modules/body-parser');
 //configure app to use session
-var expressValidator = require('express-validator');
+var expressValidator = require('./node_modules/express-validator');
 //configure app to use session
-var expressSession = require('express-session');
+var expressSession = require('./node_modules/express-session');
 
 
-const register = require('./routes/register.js');
+const register = require('./public/routes/register.js');
 
 
 
@@ -23,7 +23,7 @@ const register = require('./routes/register.js');
 //set up a port
 const port = process.env.PORT || 8080;
 //import mongo
-const mongo = require('./routes/mongo');
+const mongo = require('./public/routes/mongo');
 
 // tests to see if adding to db is possible
 mongo.connectToDB();
@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(request, response) {
 
-    response.sendFile(__dirname + '/views/landing.html');
+    response.sendFile(__dirname + '/public/views/landing.html');
 });
 
 
@@ -65,15 +65,15 @@ app.use('/assets', express.static('assets'));
 //link to the login route
 //app.use('/login', register);
 app.get('/login',(request,response,next) => {
-  response.sendFile(path.resolve('./views/login.html'));
+  response.sendFile(path.resolve('./public/views/login.html'));
 });
 app.get('/register',(request,response,next) => {
-    response.sendFile(path.resolve('./views/register.html'));
+    response.sendFile(path.resolve('./public/views/register.html'));
   });
 
 //default route for the landing page
 app.get('/', function(request, response) {     
-    response.sendFile(__dirname + '/views/landing.html');
+    response.sendFile(__dirname + '/public/views/landing.html');
 });
 
 //default route for the landing page
@@ -87,15 +87,16 @@ app.get('/groupdashboard', function(request, response) {
 });
 
 app.get('/MyAvailability', function(request, response) {
-    response.sendFile(path.join(__dirname + '/views/MyAvailability.html'));
+    response.sendFile(path.join(__dirname + '/public/views/MyAvailability.html'));
 });
 
 app.get('/MyAccount', function(request, response) {
-    response.sendFile(path.join(__dirname + '/views/MyAccount.html'));
+    response.sendFile(path.join(__dirname + '/public/views/MyAccount.html'));
 });
 
 //initialize and listen on a port
 app.listen(port, () => {
     console.log(`App has started and is listening on port ${port}`);
+    console.log(`localhost:${port}`);
 });
 
