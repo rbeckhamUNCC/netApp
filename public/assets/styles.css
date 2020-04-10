@@ -153,10 +153,6 @@ table {
   padding: 0px 5px;
 }
 
-#availabilityGrid {
-  background-color: #fbe3d4;
-}
-
 .availabilityDays {
   color: black;
   font-size: 16px;
@@ -170,7 +166,7 @@ table {
 
 .availabilityWrapper {
   display: grid;
-  grid-template-columns: 814px 820px;
+  grid-template-columns: 50% 50%;
   padding-left: 10px;
 }
 
@@ -319,9 +315,8 @@ table {
   padding: 10px 10px;
 }
 
-<<<<<<< HEAD
 /* CSS for my account */
-#accountBody, #availabilityBody {
+.peachBody {
   background-color: rgb(251, 229, 214);
 }
 
@@ -369,7 +364,6 @@ table {
 
 .groupmeet-btn {
   text-align: center;
-  padding: 5px 8px;
   margin: 15px 2px;
   border-radius: 5px;
   cursor: pointer;
