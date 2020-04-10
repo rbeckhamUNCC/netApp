@@ -4,8 +4,6 @@ module.exports = {
     var express = require('express');
     var router = express.Router();
 
-    // maybe './node_modules/express' above and './node_modules/mongodb' below
-
     var mongo = require('mongodb');
     const mongoose = require('mongoose');
     var assert = require ('assert');
@@ -16,8 +14,8 @@ module.exports = {
         useUnifiedTopology: true,
         useNewUrlParser: true,
       };
-   
-    mongoose.connect( 'mongodb://localhost/groupmeet' || process.env.MONGODB_URI, options);
+      
+    mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/groupmeet', options);
     mongoose.connection.once('open', function(){
         console.log('connected to groupmeet')
     }).on('error', function(err){
