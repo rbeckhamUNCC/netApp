@@ -342,11 +342,18 @@ table {
   padding-left: 130px;
 }
 
-#fname, #lname, #email, #password, #currentPassword, #verifyPassword {
+/* #fname, #lname, #email, #password, #currentPassword, #verifyPassword {
    width: 70%;
    line-height: 30px;
    padding: 10px;
    font-size: 18px;
+} */
+
+.inputsForRegister {
+  width: 70%;
+  line-height: 30px;
+  padding: 10px;
+  font-size: 18px;
 }
 
 .formTitle {
