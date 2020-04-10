@@ -2,7 +2,18 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 var User = require("../../models/user");
+//configure app to use session
+var expressSession = require('express-session');
 router.use(bodyParser.urlencoded({extended: true}));
+
+//register session to app
+router.use(expressSession(
+        {
+            secret:"67i66igfi6&*6i%$&%^&U",
+            resave: false,
+            saveUninitialized: false
+        }
+));
 
 //   /user/login
 router.post('/login',function(request,response){
@@ -10,7 +21,7 @@ router.post('/login',function(request,response){
     var email = request.body.email;
     var password = request.body.password;
     //specify user to find by email and password
-    User.findOne({email: email, password: password}, function(err,user){
+    User.findOne({email: email, password: password}, function(err, user){
          //user doesnt exist
        if(!user) {
            return response.status(404).send(`incorrect credentials!`);
@@ -21,12 +32,13 @@ router.post('/login',function(request,response){
            console.log(err);
            return response.status(500).send(`incorrect credentials!`);
        }
-      
        //set logged in user session
        // below needs to be uncommented so that sessions can be set, maybe this needs to be put somewhere else
-       //request.session.user = user;
+       global.fullName = user['firstName'] + ' ' + user['lastName'];
+
+       // console.log(request.session.fullName);
        // after logged in
-       return response.status(200).render((__dirname + "/../../views/dashboard"));
+       return response.status(200).redirect(("/dashboard"));
     });
 });
 

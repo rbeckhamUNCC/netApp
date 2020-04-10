@@ -285,6 +285,7 @@ table {
   width: 100%;
   font-size: 15px;
   color: rgb(150, 45, 32);
+  margin-top: 5px;
 }
 
 .navigation-side #line {

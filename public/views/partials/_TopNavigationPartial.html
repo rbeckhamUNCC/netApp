@@ -30,7 +30,11 @@
       <img src="/assets/avatar.png" alt="avatar" width="100px" height="100px">
 
       <!-- for name and email - add from database -->
-      <h4 id="name">Matthew McCoy</h4>
+      <h4 id="name">
+        <% if(typeof fullName != 'undefined') { %>
+          <%= fullName %>
+        <% } %>
+      </h4>
 
       <div class="">
         <a href="/" class="side-button">Sign Out</a>

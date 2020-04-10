@@ -17,6 +17,8 @@ var expressSession = require('./node_modules/express-session');
 
 const register = require('./public/routes/register.js');
 
+global.fullName = "Not Signed In";
+
 
 //__MAYBE I NEED THESE FEW LINES????_______________________________________
 //set up a port
@@ -61,14 +63,14 @@ app.use('/assets', express.static('assets'));
 //link to the login route
 //app.use('/login', register);
 app.get('/login',(request,response,next) => {
-  response.sendFile('./public/views/login.html');
+  response.sendFile(__dirname + '/public/views/login.html');
 });
 app.get('/register',(request,response,next) => {
-    response.sendFile('./public/views/register.html');
+    response.sendFile(__dirname + '/public/views/register.html');
   });
 
 //default route for the landing page
-app.get('/', function(request, response) {     
+app.get('/', function(request, response) {
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
@@ -103,4 +105,3 @@ app.listen(port, () => {
     console.log(`https://groupmeet-capstone.herokuapp.com/`);
     console.log('connecting to mongoDB...')
 });
-
