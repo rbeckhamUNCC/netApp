@@ -26,7 +26,7 @@ router.post('/newUser',function(request,response){
        }
        response.send(`User: ${newUser.email} added!`);
        console.log(`User: ${savedUser.ops[0].email} added!`);
-       return response.status(200).send();
+       return response.status(200).render( (__dirname + "/../../views/dashboard"));;
    });
 });
 

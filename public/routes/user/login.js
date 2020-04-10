@@ -26,7 +26,7 @@ router.post('/login',function(request,response){
        // below needs to be uncommented so that sessions can be set, maybe this needs to be put somewhere else
        //request.session.user = user;
        // after logged in
-       return response.status(200).send(`${email} logged in!`);
+       return response.status(200).render((__dirname + "/../../views/dashboard"));
     });
 });
 

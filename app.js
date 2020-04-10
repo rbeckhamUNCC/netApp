@@ -61,10 +61,10 @@ app.use('/assets', express.static('assets'));
 //link to the login route
 //app.use('/login', register);
 app.get('/login',(request,response,next) => {
-  response.sendFile(path.resolve('./public/views/login.html'));
+  response.sendFile('./public/views/login.html');
 });
 app.get('/register',(request,response,next) => {
-    response.sendFile(path.resolve('./public/views/register.html'));
+    response.sendFile('./public/views/register.html');
   });
 
 //default route for the landing page
@@ -78,21 +78,23 @@ app.get('/', function(request, response) {
 // });
 
 app.get('/dashboard', function(request, response) {
-    response.render(path.join(__dirname + '/public/views/dashboard'));
+    response.render(__dirname + '/public/views/dashboard');
 });
 
 app.get('/groupdashboard', function(request, response) {
-    response.render(path.join(__dirname + '/public/views/groupdashboard'));
+    response.render(__dirname + '/public/views/groupdashboard');
 });
 
 
 app.get('/MyAvailability', function(request, response) {
-    response.render(path.join(__dirname + '/public/views/MyAvailability'));
+    response.render(__dirname + '/public/views/MyAvailability');
 });
 
 app.get('/MyAccount', function(request, response) {
-    response.render(path.join(__dirname + '/public/views/MyAccount'));
+    response.render(__dirname + '/public/views/MyAccount');
 });
+
+
 
 //initialize and listen on a port
 app.listen(port, () => {
