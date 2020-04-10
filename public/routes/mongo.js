@@ -4,7 +4,7 @@ module.exports = {
     var express = require('express');
     var router = express.Router();
 
-    // './node_modules/express' above and './node_modules/mongodb' below
+    // maybe './node_modules/express' above and './node_modules/mongodb' below
 
     var mongo = require('mongodb');
     const mongoose = require('mongoose');

@@ -77,14 +77,18 @@ app.get('/', function(request, response) {
 });
 
 //default route for the landing page
-app.get('/dashboard', function(request, response) {
-    response.render('dashboard');
-});
+// app.get('/dashboard', function(request, response) {
+//     response.render('dashboard');
+// });
 
+app.get('/dashboard', function(request, response) {
+    response.render(path.join(__dirname + '/public/views/dashboard'));
+});
 
 app.get('/groupdashboard', function(request, response) {
-    response.render('groupdashboard');
+    response.render(path.join(__dirname + '/public/views/groupdashboard'));
 });
+
 
 app.get('/MyAvailability', function(request, response) {
     response.sendFile(path.join(__dirname + '/public/views/MyAvailability.html'));
@@ -97,6 +101,7 @@ app.get('/MyAccount', function(request, response) {
 //initialize and listen on a port
 app.listen(port, () => {
     console.log(`App has started and is listening on port ${port}`);
-    console.log(`localhost:${port}`);
+    console.log(`http://localhost:${port}`);
+    console.log('connecting to mongoDB...')
 });
 
