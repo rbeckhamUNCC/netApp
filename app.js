@@ -102,6 +102,7 @@ app.get('/MyAccount', function(request, response) {
 app.listen(port, () => {
     console.log(`App has started and is listening on port ${port}`);
     console.log(`http://localhost:${port}`);
+    console.log(`https://groupmeet-capstone.herokuapp.com/`);
     console.log('connecting to mongoDB...')
 });
 
