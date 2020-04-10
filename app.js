@@ -36,8 +36,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', function(request, response) {
-
+    
     response.sendFile(__dirname + '/public/views/landing.html');
+});
+
+app.get('/sign-out', function(request, response) {
+    global.fullName = "Not Signed In";
+    response.redirect("/");
 });
 
 app.use(logger('dev'));
