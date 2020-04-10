@@ -64,6 +64,12 @@ app.use('/assets', express.static('assets'));
 // app.use('/register', register);
 //link to the login route
 //app.use('/login', register);
+app.get('/login',(request,response,next) => {
+  response.sendFile(path.resolve('./views/login.html'));
+});
+app.get('/register',(request,response,next) => {
+    response.sendFile(path.resolve('./views/register.html'));
+  });
 
 //default route for the landing page
 app.get('/', function(request, response) {     
