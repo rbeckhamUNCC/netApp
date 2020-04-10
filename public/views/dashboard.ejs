@@ -16,13 +16,13 @@ and open the template in the editor.
 </head>
 <body>
     <%- include('./partials/_TopNavigationPartial.html') %>
-    
+
     <div class="grid_12">
          <header id="dashboard">
                 <h1 id="dashboardHeader">This Week's Meeting Time</h1>
          </header>
         <div id="meetingTimes">
-                <table>
+                <table cellpadding="15" cellspace="15">
                     <tr>
                         <td class="weekCalendar">Mon</td>
                         <td class="weekCalendar">Tues</td>
@@ -32,9 +32,20 @@ and open the template in the editor.
                         <td class="weekCalendar">Sat</td>
                         <td class="weekCalendar">Sun</td>
                     </tr>
+                    <tr>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                        <th class="timeRow"></th>
+                    </tr>
                 </table>
             </div>
             <div id='recentActivity'>
                 <h2 id="recentActivityHeader">Recent Activity</h2>
             </div>
-        </div>
+    </div>
+  </body>
+  </html>

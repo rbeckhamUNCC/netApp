@@ -18,7 +18,6 @@ var expressSession = require('./node_modules/express-session');
 const register = require('./public/routes/register.js');
 
 
-
 //__MAYBE I NEED THESE FEW LINES????_______________________________________
 //set up a port
 const port = process.env.PORT || 8080;
@@ -38,9 +37,6 @@ app.get('/', function(request, response) {
 
     response.sendFile(__dirname + '/public/views/landing.html');
 });
-
-
-
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -91,11 +87,11 @@ app.get('/groupdashboard', function(request, response) {
 
 
 app.get('/MyAvailability', function(request, response) {
-    response.sendFile(path.join(__dirname + '/public/views/MyAvailability.html'));
+    response.render(path.join(__dirname + '/public/views/MyAvailability'));
 });
 
 app.get('/MyAccount', function(request, response) {
-    response.sendFile(path.join(__dirname + '/public/views/MyAccount.html'));
+    response.render(path.join(__dirname + '/public/views/MyAccount'));
 });
 
 //initialize and listen on a port

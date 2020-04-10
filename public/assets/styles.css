@@ -79,35 +79,61 @@ header#landing {
 }
 
 .grid_12 {
-    display: inline;
     /* float: left;  was being ignored because of display: inline; above*/
-    position: relative;
-    margin-left: 10px;
-    margin-right: 10px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-left: 157px;
+    margin-top: 15px;
+    width: 90%;
+    overflow-x: hidden;
 }
 
 
 .weekCalendar {
-    border: 1px solid black;
+    border: 2px solid black;
+    border-bottom: 1px solid black;
     color: black;
-    padding: 5px 40px;
+    width: 200px;
+    padding: 15px;
+    text-align: center;
+}
+
+.timeRow {
+    border-top: none;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    width: 200px;
+    padding: 30px;
+    text-align: center;
+    color: black;
+}
+
+table {
+    border-spacing: 5px 0px;
+}
+
+.meetingTimes {
+  margin: 0px 15px;
 }
 
 #dashboardHeader {
     color: black;
-    font-size: 22px;
+    font-size: 26px;
     padding: 5px 10px;
     background-color: #fbe3d4;
 }
 
 #dashboard {
     border: 1px solid black;
+    margin-bottom: 15px;
 }
 
 #recentActivityHeader {
     color: black;
     background-color: #fbe3d4;
-    font-size: 16px;
+    font-size: 22px;
     padding: 15px;
     text-align: center;
     border-bottom: 2px solid black;
@@ -115,8 +141,8 @@ header#landing {
 
 #recentActivity {
     border: 1px solid black;
-    height: 400px;
-    width: 853px;
+    height: 470px;
+    margin-top: 15px;
 }
 
 #availabilityHeader {
@@ -131,65 +157,29 @@ header#landing {
   background-color: #fbe3d4;
 }
 
-#accountHeader {
-  border-radius: 10px;
-  background: red;
-  color: white;
-  font-size: 20px;
-  padding: 0px 5px;
-  width: 115px;
-}
-
 .availabilityDays {
   color: black;
   font-size: 16px;
 }
 
-.formTitle {
-  color: black;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.accountWrapper {
-  display: grid;
-  grid-template-columns: 400px 400px;
-  position: center;
-}
-
-.formLabel {
-  color: black;
-  font-size: 12px;
-}
-
-.groupmeet-btn {
-  text-align: center;
-  padding: 5px 8px;
-  margin: 15px 2px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.accountBtns  {
-  background-color: gray;
-  color: white;
-}
-
 /* CSS for groupdashboard.html */
 .grid_6 {
-  /* width: 48%; */
-  display: inline;
-  /* float: left; */
-  position: relative;
+  width: 98%;
+  border: 1px solid black;
+}
+
+.availabilityWrapper {
+  display: grid;
+  grid-template-columns: 814px 820px;
+  padding-left: 10px;
 }
 
 #urlBox {
-  border: 1px solid black;
-  margin-right: 30px;
+  height: 270px;
 }
 
 #commentBox {
-  border: 1px solid black;
+  height: 270px;
 }
 
 #boxHeader {
@@ -204,20 +194,28 @@ header#landing {
 .commentBtn, .urlBtn {
   background-color: rgb(150, 45, 32);
   color: white;
+  font-size: 18px;
+  border-radius: 5px;
 }
 
 .urlBtn {
-  padding-right: 22px;
-  padding-left: 22px;
+  padding: 10px 30px;
+}
+
+.commentBtn {
+  padding: 10px 10px;
 }
 
 .groupLinks {
   padding-left: 5px;
 }
 
-#url, #comment {
-  line-height: 25px;
+#urlinput, #commentinput {
+  line-height: 38px;
   border: 1px solid rgb(150, 45, 32);
+  width: 90%;
+  padding-left: 10px;
+  font-size: 14px;
 }
 
 /* Add CSS for _TopNavigationPartial */
@@ -319,4 +317,146 @@ header#landing {
 .navigation-side .courses {
   margin-bottom: 40px;
   padding: 10px 10px;
+}
+
+<<<<<<< HEAD
+/* CSS for my account */
+#accountBody, #availabilityBody {
+  background-color: rgb(251, 229, 214);
+}
+
+#accountHeader, #availabilityHeader {
+  border-radius: 10px;
+  background-color: rgb(150, 45, 32);
+  color: white;
+  font-size: 28px;
+  padding: 0px 0px;
+  width: 220px;
+}
+
+#myAccount, #myAvailability {
+  margin: auto;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.accountWrapper {
+  display: grid;
+  grid-template-columns: 800px 800px;
+  padding-left: 130px;
+}
+
+#fname, #lname, #email, #password, #currentPassword, #verifyPassword {
+   width: 70%;
+   line-height: 30px;
+   padding: 10px;
+   font-size: 18px;
+}
+
+.formTitle {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 20px 0px;
+}
+
+.formLabel {
+  color: black;
+  font-size: 16px;
+  padding: 15px 0px;
+}
+
+.groupmeet-btn {
+  text-align: center;
+  padding: 5px 8px;
+  margin: 15px 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.accountBtns  {
+  background-color: gray;
+  color: white;
+  font-size: 18px;
+  padding: 10px 10px;
+}
+/* All CSS for the register and login pages */
+body.registerLoginBody {
+  background-color: #fbe3d4;
+}
+
+div.registerAndLoginBox {
+  width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+div.registerAndLoginBox h2 {
+  font-size: 35px;
+  border-bottom: 3px solid #ffffff;
+  margin-bottom: 40px;
+  padding: 5px 0;
+  text-align: center;
+}
+
+div.input-box {
+  width: 100%;
+  overflow: hidden;
+  font-size: 25px;
+  padding: 7px 0;
+  margin: 7px 0;
+  border-bottom: 2px solid #ffffff;
+}
+
+div.input-box input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: white;
+  width: 100%;
+  float: left;
+  padding: 5px;
+}
+
+div.input-box input::placeholder {
+  color: #ffffff;
+}
+
+.registerAndLoginButton {
+  width: 100%;
+  background: none;
+  border: 2px solid #ffffff;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 8px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.registerAndLoginButton:hover {
+  background-color: #ffffff;
+  color: RGB(150, 58, 47);
+  font-weight: bold;
+}
+
+div.anchorterms {
+  text-align: center;
+}
+
+a.terms {
+  font-size: 12px;
+  padding: 8px 0 0 0;
+  text-decoration: none;
+  color: white;
+  width: 100%;
 }
