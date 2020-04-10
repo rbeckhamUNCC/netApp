@@ -98,6 +98,7 @@ app.get('/MyAccount', function(request, response) {
     response.sendFile(path.join(__dirname + '/public/views/MyAccount.html'));
 });
 
+var User = require("./public/models/user");
 app.post('/user/login',function(request,response){
     console.log("/login reached:" + request.body.email)
     var email = request.body.email;
