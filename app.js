@@ -98,7 +98,7 @@ app.get('/MyAccount', function(request, response) {
     response.sendFile(path.join(__dirname + '/public/views/MyAccount.html'));
 });
 
-app.post('/login',function(request,response){
+app.post('/user/login',function(request,response){
     console.log("/login reached:" + request.body.email)
     var email = request.body.email;
     var password = request.body.password;
