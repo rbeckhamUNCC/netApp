@@ -18,7 +18,6 @@ var expressSession = require('express-session');
 const register = require('./routes/register.js');
 
 
-
 //__MAYBE I NEED THESE FEW LINES????_______________________________________
 //set up a port
 const port = process.env.PORT || 8080;
@@ -38,9 +37,6 @@ app.get('/', function(request, response) {
 
     response.sendFile(__dirname + '/views/landing.html');
 });
-
-
-
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -72,7 +68,7 @@ app.get('/register',(request,response,next) => {
   });
 
 //default route for the landing page
-app.get('/', function(request, response) {     
+app.get('/', function(request, response) {
     response.sendFile(__dirname + '/views/landing.html');
 });
 
