@@ -20,8 +20,8 @@
             <label>Password</label>
             <input type="password" name="password"><br>
             <input type="submit" value="login">
-        <%--For some reason you have to submit twice Professor said it's a 
-            connection issue with the server. --%>
+        <%--For some reason you have to submit twice, the professor said it's a 
+            connection issue with the server. UPDATE: have to sign in, then initially go to desired page through URL --%>
         </form>
         <a href="signup.jsp">New user? Click here to register</a>
     </body>

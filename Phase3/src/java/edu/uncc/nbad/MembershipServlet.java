@@ -83,6 +83,7 @@ public class MembershipServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try{
+            
         HttpSession session = request.getSession();
 
         String action = request.getParameter("action");
@@ -95,6 +96,7 @@ public class MembershipServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         
+        // exist/email validation checks
         if(firstName.isEmpty() || lastName.isEmpty() || password.isEmpty() || email.isEmpty() || password.length()<8 || !(email.contains("@"))) {
             response.setContentType("text/html;charset=UTF-8");
              try (PrintWriter out = response.getWriter()) {
@@ -107,6 +109,7 @@ public class MembershipServlet extends HttpServlet {
                 out.println("<h1>ERROR! Make sure all fields are filled out!</h1>");
                 out.println("<h2>The following entries are invalid: </h2>");
                 out.println("<body>");
+                // indicate which field is empty and addresses validation issue
                 if(firstName.isEmpty()) {
                     out.println("<p>First Name</p>");
                 }
@@ -129,11 +132,13 @@ public class MembershipServlet extends HttpServlet {
                 out.println("</html>");
              }    
         }
+            //set/save attributes to a new user
             user.setFirstName(firstName);
             user.setLastName(lastName);
             user.setEmail(email);
             user.setPassword(password);
-
+            
+            //add save record of user that signed up to database
             UserTable.addRecord(user);
         
             session.setAttribute("user", user);
@@ -145,13 +150,14 @@ public class MembershipServlet extends HttpServlet {
             String password = request.getParameter("password");
             User user = UserTable.getUser(email);
             
-            if (user != null){
-                if((user.getPassword()).equals(password)) {
+            if(user != null){
+                if(user.getPassword().equals(password)) {
                     List<Product> products = null;
                     products = ProductTable.selectProducts();
                     session.setAttribute("products", products);
-                    request.getServletContext().getRequestDispatcher("/products.jsp").forward(request,response);
                     session.setAttribute("user",user);
+                    request.getServletContext().getRequestDispatcher("/login.jsp").forward(request,response);
+//                    request.getServletContext().getRequestDispatcher("/products.jsp").forward(request,response);
             } else {
                     response.setContentType("text/html;charset=UTF-8");
                     try (PrintWriter out = response.getWriter()) {
@@ -175,8 +181,10 @@ public class MembershipServlet extends HttpServlet {
                         }
                         out.println("</body>");
                         out.println("</html>");
+                        
+                        //hash map results of valid sers printed to console
                         UserTable.getUsersMap();
-                            
+                                                   
                             
                     } catch (SQLException e){
                         System.out.println(e.getMessage());

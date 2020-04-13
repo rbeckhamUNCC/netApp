@@ -27,7 +27,7 @@ public class ProductTable {
     }
     //selectProducts method
     public static List<Product> selectProducts() throws SQLException {
-        products = new ArrayList<Product>();
+        products = new ArrayList<>();
         try{                        
             //Debugging printing to the console
             System.out.println("ProductTable: Creating connection to database.");
@@ -37,7 +37,7 @@ public class ProductTable {
             PreparedStatement statement = connection.prepareStatement(preparedSQL);
             //Puts the results of the query into the resultset
             resultset = statement.executeQuery();
-            //Loops throught the resultset
+            //Loops throught the results
                 while(resultset.next()){
                     //Grabs the data from the resultset
                     String code = resultset.getString("code");
@@ -55,7 +55,7 @@ public class ProductTable {
             connection.close();
             return products;
         }
-    //selectProduct method
+    //select a product and get its values
     public static Product selectProduct(String productCode) throws SQLException {
         //Call to selectProducts method
         products = selectProducts();
@@ -75,7 +75,7 @@ public class ProductTable {
         if (p != null) return true;
         else return false;
     }    
-    //saveProducts method
+    //save multiple products method
     private static void saveProducts(List<Product> products) throws SQLException {
         try {
             System.out.println("ProductTable: Creating connection to database.");
@@ -94,7 +94,7 @@ public class ProductTable {
                 System.out.println(e);
         }
     }
-    //insertProduct method
+    //insert single product method
     public static void insertProduct(Product product) throws SQLException {
         try {
             //Debugging code prints to console
@@ -136,7 +136,8 @@ public class ProductTable {
             String preparedSQL = "DELETE FROM shop.products WHERE code=?";
             PreparedStatement statement = connection.prepareStatement(preparedSQL);
             statement.setString(1,product.getCode());
-            System.out.println("Deleting Product: Code: " + product.getCode() + " Description: " + product.getDescription() + " Price: " + product.getPrice());
+            System.out.println("Deleting Product: Code: " + product.getCode() + 
+                    " Description: " + product.getDescription() + " Price: " + product.getPrice());
             statement.execute();
     }    
 }
