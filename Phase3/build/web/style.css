@@ -1,0 +1,121 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 23, 2019, 10:16:14 PM
+    Author     : Robert Beckham
+*/
+
+/*General Styling for multiple instances*/
+body {
+    margin-left: 25px;
+}
+
+a {
+    text-decoration: underline;
+}
+
+#userLogout {
+    margin-bottom: -7px;
+} 
+
+#headerText{
+    color: #008B8B;
+    margin-bottom: 9px;
+}
+
+/*Product page*/
+
+label{
+    text-align: left;
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;   
+}
+
+.info{
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 9px;
+    width: 100px;
+}
+
+#infBox {
+    margin-left: 24px;
+}
+
+textarea{
+    margin-left: 4px;
+    margin-bottom: 6px;
+    vertical-align: top;
+}
+
+.inline{
+    float: left;
+    margin-left: 123.3px;
+    
+}
+
+#viewProds{
+    margin: 0px;
+    margin-left: 5px;
+}
+
+/*Login Page*/
+.login{
+    display: inline-block;
+    margin-bottom: 11px;
+    margin-left: 20px;
+    width: 150px;
+}
+
+#loginButton{
+    margin-left: 233px;
+}
+
+/*Sign Up Page*/
+#signUpButton{
+    display: inline-block;
+    margin-left: 217px;
+    margin-bottom: 11px;
+}
+
+/*Products Page*/
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: .4rem;
+    text-align: left;
+    
+}
+
+#addProdButton {
+    margin-top: 5px;
+}
+
+.price {
+    text-align: right;
+}
+
+/*Adjusts buttons*/
+#yes, #no {
+    width: 70px;
+    float: left;
+}
+
+#no {
+    margin: 0px;
+    margin-left: 5px;
+}
+
+.answerBox {
+    display: inline-block;
+    margin: 4px;
+    width: 500px;
+}
+
+
+
+
