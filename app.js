@@ -96,6 +96,13 @@ app.get('/MyAccount', function(request, response) {
     response.render(__dirname + '/public/views/MyAccount');
 });
 
+app.get('/groupSettings', function(request, response) {
+  response.render(__dirname + '/public/views/groupSettings');
+})
+
+app.get('/meetingTimes', function(request, response) {
+  response.render(__dirname + '/public/views/groupMeetingTimes');
+})
 
 
 //initialize and listen on a port

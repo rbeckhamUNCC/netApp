@@ -110,12 +110,33 @@ header#landing {
     color: black;
 }
 
+.CalendarDay {
+    border-top: none;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    height: 107px;
+    width: 200px;
+    padding: 30px;
+    text-align: center;
+    color: black;
+}
+
 table {
     border-spacing: 5px 0px;
 }
 
 .meetingTimes {
   margin: 0px 15px;
+}
+
+#meetingTimes2 {
+  width:65%;
+  float: left;
+}
+
+#calendarTable {
+  width: 100%;
 }
 
 #dashboardHeader {
@@ -125,9 +146,25 @@ table {
     background-color: #fbe3d4;
 }
 
-#dashboard {
+#dashboardHeader2 {
+    color: black;
+    font-size: 26px;
+    padding: 5px 10px;
+    background-color: #fbe3d4;
+}
+
+.floatBtn {
+  padding: 20px 20px;
+}
+
+#dashboard, #dashboard2 {
     border: 1px solid black;
     margin-bottom: 15px;
+}
+
+#dashboard2 {
+  width: 65%;
+  float: left;
 }
 
 #recentActivityHeader {
@@ -139,10 +176,26 @@ table {
     border-bottom: 2px solid black;
 }
 
-#recentActivity {
+#recentActivityHeader2 {
+  color: black;
+  background-color: #fbe3d4;
+  font-size: 22px;
+  text-align: center;
+  border-bottom: 2px solid black;
+  padding: 7px 10px;
+}
+
+#recentActivity, #recentActivity2 {
     border: 1px solid black;
     height: 470px;
     margin-top: 15px;
+}
+
+#recentActivity2 {
+  width: 33%;
+  height: 650px;
+  float: right;
+  margin-top: 0;
 }
 
 #availabilityHeader {
@@ -156,6 +209,10 @@ table {
 .availabilityDays {
   color: black;
   font-size: 16px;
+}
+
+.calendarLeft {
+  width: 100%;
 }
 
 /* CSS for groupdashboard.html */
@@ -187,11 +244,23 @@ table {
   border-bottom: 2px solid black;
 }
 
-.commentBtn, .urlBtn {
+.commentBtn, .urlBtn, .inviteBtn, .deleteGroup {
   background-color: rgb(150, 45, 32);
   color: white;
   font-size: 18px;
   border-radius: 5px;
+  width: 8rem;
+}
+
+.requestBtn {
+  background-color: rgb(150, 45, 32);
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 1rem;
+  float: right;
+  width: 15%;
 }
 
 .urlBtn {
@@ -202,16 +271,40 @@ table {
   padding: 10px 10px;
 }
 
+.inviteBtn {
+  padding: 10px 5px;
+}
+
+.deleteDiv {
+  width: 98.6%;
+  margin-top: 3rem;
+}
+
+.deleteGroup {
+  padding: 10px 5px;
+  float: right;
+}
+
+h1.groupSettingsSubHead {
+  color: #962d20;
+  font-size: 1.5rem;
+}
+
 .groupLinks {
   padding-left: 5px;
 }
 
-#urlinput, #commentinput {
+#urlinput, #commentinput, #groupNameInput, #inviteInput, #membersInput {
   line-height: 38px;
   border: 1px solid rgb(150, 45, 32);
   width: 90%;
   padding-left: 10px;
   font-size: 14px;
+}
+
+.groupSettingsInput {
+  line-height: 40px;
+  font-size: 30px;
 }
 
 /* Add CSS for _TopNavigationPartial */
@@ -330,7 +423,7 @@ table {
   width: 220px;
 }
 
-#myAccount, #myAvailability {
+#myAccount, #myAvailability, #groupSettings {
   margin: auto;
   text-align: center;
   padding-top: 30px;

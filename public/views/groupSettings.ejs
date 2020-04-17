@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/assets/styles.css">
+      <link rel="icon" href="/assets/favicon.png">
+      <link rel="stylesheet" href="/assets/styles.css"/>
+
+      <title>Group Dashboard</title>
+  </head>
+  <body>
+      <%- include('./partials/_TopNavigationPartial.html') %>
+
+      <div class="grid_12">
+        <header id="groupSettings">
+            <h1 id="accountHeader">Group Settings</h1>
+        </header>
+
+        <div class="groupLinks">
+          <div id="groupNameDiv">
+            <h1 class="groupSettingsSubHead">Group</h1>
+            <input size="100" value="Capstone" type="text" id="groupNameInput" class="groupSettingsInput" name="groupName">
+            <button type="submit" value="Submit" class="groupmeet-btn urlBtn">Save</button>
+          </div>
+          <div id="inviteUserDiv">
+            <h1 class="groupSettingsSubHead">Invite</h1>
+            <input size="100" placeholder="EMAIL: lauren.hunter23@gmail.com" type="text" id="inviteInput" class="groupSettingsInput" name="inviteUser">
+            <button type="submit" value="Submit" class="groupmeet-btn inviteBtn">Invite User</button>
+          </div>
+          <div id="members">
+            <h1 class="groupSettingsSubHead">Members</h1>
+            <input size="100" value="Jim Reeves" type="text" id="membersInput" class="groupSettingsInput" name="groupMember">
+            <button type="submit" value="Submit" class="groupmeet-btn urlBtn">Remove</button>
+            <input size="100" value="Sally Fields" type="text" id="membersInput" class="groupSettingsInput" name="groupMember">
+            <button type="submit" value="Submit" class="groupmeet-btn urlBtn">Remove</button>
+            <input size="100" value="Bob Dylan" type="text" id="membersInput" class="groupSettingsInput" name="groupMember">
+            <button type="submit" value="Submit" class="groupmeet-btn urlBtn">Remove</button>
+          </div>
+        </div>
+        <div class="deleteDiv">
+          <button type="submit" value="Submit" class="groupmeet-btn urlBtn deleteGroup">Delete Group</button>
+        </div>
+      </div>
+  </body>
+</html>
