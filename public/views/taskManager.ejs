@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
+
+    <title>My Account</title>
+</head>
+<body>
+  <%- include('./partials/_TopNavigationPartial.html') %>
+  <div class="grid_12">
+      <header id="taskManager">
+          <h1 id="taskManagerHeader">Task Manager
+          <a href="/dashboard" id="createNewBtn">Create New</a>
+          </h1>
+      </header>
+      <div class="container">
+        <div class="box">
+          <div id="todoHeader">
+            To Do
+          </div>
+          <div class="todoBox">
+          </div>
+        </div>
+        <div class="box">
+          <div id="inProgressHeader">
+            In Progress
+          </div>
+          <div class="inProgressBox">
+          </div>
+        </div>
+        <div class="box">
+          <div id="completedHeader">
+            Completed
+          </div>
+          <div class="completedBox">
+          </div>
+        </div>
+        <div class="box">
+          <div id="helpHeader">
+            Help
+          </div>
+          <div class="helpBox">
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
