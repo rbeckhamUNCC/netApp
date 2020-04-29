@@ -79,6 +79,10 @@ app.get('/', function(request, response) {
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
+app.get('/addTaskModal',(request,response,next) => {
+  response.sendFile(__dirname + '/public/views/addTaskModal.html');
+});
+
 //default route for the landing page
 // app.get('/dashboard', function(request, response) {
 //     response.render('dashboard');
@@ -108,6 +112,11 @@ app.get('/groupSettings', function(request, response) {
 app.get('/meetingTimes', function(request, response) {
   response.render(__dirname + '/public/views/groupMeetingTimes');
 })
+
+app.get('/taskManager', function(request, response) {
+  response.render(__dirname + '/public/views/taskManager');
+})
+
 
 
 //initialize and listen on a port
