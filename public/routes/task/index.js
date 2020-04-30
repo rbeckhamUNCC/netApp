@@ -1,11 +1,11 @@
-const MainGroupRouter = require("express").Router();
+const MainTaskRouter = require("express").Router();
 
-// "/group/newGroup"
-MainGroupRouter.route("/newGroup")
-    .post(require("./newGroup"))
+// "/task/newTask"
+MainTaskRouter.route("/newTask")
+    .post(require("./newTask"))
 
-// "/group/deleteGroup"
-MainGroupRouter.route("/deleteGroup")
-    .post(require("./deleteGroup"))    
+// "/task/deleteTask"
+MainTaskRouter.route("/deleteTask")
+    .post(require("./deleteTask"))    
 
-module.exports = MainGroupRouter;
+module.exports = MainTaskRouter;

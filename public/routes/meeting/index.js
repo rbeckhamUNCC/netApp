@@ -1,11 +1,11 @@
-const MainGroupRouter = require("express").Router();
+const MainMeetingRouter = require("express").Router();
 
-// "/group/newGroup"
-MainGroupRouter.route("/newGroup")
-    .post(require("./newGroup"))
+// "/meeting/newMeeting"
+MainMeetingRouter.route("/newMeeting")
+    .post(require("./newMeeting"))
 
-// "/group/deleteGroup"
-MainGroupRouter.route("/deleteGroup")
-    .post(require("./deleteGroup"))    
+// "/meeting/deleteMeeting"
+MainMeetingRouter.route("/deleteMeeting")
+    .post(require("./deleteMeeting"))    
 
-module.exports = MainGroupRouter;
+module.exports = MainMeetingRouter;
