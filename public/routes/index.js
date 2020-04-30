@@ -6,4 +6,7 @@
 module.exports = function(app) {
     app.use('/group', require('./group'));
     app.use('/user', require('./user'));
+    app.use('/comment', require('./comment')); // will need to be moved to group once route set up so: /group/:id/comment/newComment for example
+    app.use('/task', require('./task')); // will need to be moved to group
+    app.use('/meeting', require('./meeting')); // will need to be moved to group
 }
