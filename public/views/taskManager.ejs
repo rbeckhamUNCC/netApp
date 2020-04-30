@@ -5,47 +5,56 @@
     <link rel="stylesheet" href="/assets/styles.css">
     <link rel="icon" href="/assets/favicon.png">
     <link rel="stylesheet" href="/assets/styles.css"/>
-    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
 
     <title>My Account</title>
 </head>
 <body>
   <%- include('./partials/_TopNavigationPartial.html') %>
-  <div class="grid_12">
+  <div class="grid_12 taskManagerDiv">
+      <div class="groupButtonDiv">
+        <%- include('./partials/_GroupButtons.html') %>
+      </div>
       <header id="taskManager">
           <h1 id="taskManagerHeader">Task Manager
-          <a href="/dashboard" id="createNewBtn">Create New</a>
+          <a href="/addNewTask" class="groupbtn">Create New</a>
           </h1>
       </header>
-      <div class="container">
-        <div class="box">
-          <div id="todoHeader">
-            To Do
+      <div class="dragndrop">
+        <div class="div_lists">
+          <div class="separate_list todoBox">
+            <div id="todoHeader">
+              To Do
+            </div>
+            <div class="list-item" draggable="true">
+              <h5>Test Task 1</h5>
+              <p>Matthew</p>
+            </div>
+            <div class="list-item" draggable="true">
+              <h5>Test Task 2</h5>
+              <p>Matthew</p>
+            </div>
+            <div class="list-item" draggable="true">
+              <h5>Test Task 3</h5>
+              <p>Matthew</p>
+            </div>
           </div>
-          <div class="todoBox">
+          <div class="separate_list inProgressBox">
+            <div id="inProgressHeader">
+              In Progress
+            </div>
           </div>
-        </div>
-        <div class="box">
-          <div id="inProgressHeader">
-            In Progress
+          <div class="separate_list completedBox">
+            <div id="completedHeader">
+              Completed
+            </div>
           </div>
-          <div class="inProgressBox">
-          </div>
-        </div>
-        <div class="box">
-          <div id="completedHeader">
-            Completed
-          </div>
-          <div class="completedBox">
-          </div>
-        </div>
-        <div class="box">
-          <div id="helpHeader">
-            Help
-          </div>
-          <div class="helpBox">
+          <div class="separate_list helpBox">
+            <div id="helpHeader">
+              Help
+            </div>
           </div>
         </div>
       </div>
   </div>
+  <script type="text/javascript" src="/assets/dragndrop.js"></script>
 </body>

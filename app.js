@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', function(request, response) {
-    
+
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
@@ -79,7 +79,7 @@ app.get('/', function(request, response) {
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
-app.get('/addTaskModal',(request,response,next) => {
+app.get('/addNewTask',(request,response,next) => {
   response.sendFile(__dirname + '/public/views/addTaskModal.html');
 });
 
