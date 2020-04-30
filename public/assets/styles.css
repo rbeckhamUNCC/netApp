@@ -260,17 +260,6 @@ table {
   width: 8rem;
 }
 
-.requestBtn {
-  background-color: rgb(150, 45, 32);
-  color: white;
-  font-size: 18px;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 1rem;
-  float: right;
-  width: 15%;
-}
-
 .urlBtn {
   padding: 10px 30px;
   width: 9rem;
@@ -279,6 +268,11 @@ table {
 .groupBtn {
   width: 9rem;
   padding: 15px 5px;
+}
+
+.requestBtn {
+  width: 10rem;
+  float: right;
 }
 
 .commentBtn {
@@ -780,4 +774,50 @@ a.terms {
 
 .groupButtonDiv {
   margin: 20px;
+}
+
+/* CSS for add group modal */
+.groupbox {
+  width: 400px;
+  height: 220px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+/* CSS for request meeting modal */
+.requestBox {
+  width: 400px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+input[type=Date] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat;
+}
+
+input[type=Date]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type=Date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+input[type=Time]::-webkit-inner-spin-button {
+  display: none;
 }

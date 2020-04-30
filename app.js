@@ -79,8 +79,16 @@ app.get('/', function(request, response) {
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
-app.get('/addNewTask',(request,response,next) => {
+app.get('/addNewTask', function(request,response) {
   response.sendFile(__dirname + '/public/views/addTaskModal.html');
+});
+
+app.get('/addGroup', function(request,response) {
+  response.sendFile(__dirname + '/public/views/addGroupModal.html');
+});
+
+app.get('/requestMeeting', function(request,response) {
+  response.sendFile(__dirname + '/public/views/requestMeetingModal.html');
 });
 
 //default route for the landing page
