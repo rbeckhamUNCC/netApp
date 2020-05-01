@@ -83,9 +83,31 @@ app.get('/', function(request, response) {
 // app.get('/dashboard', function(request, response) {
 //     response.render('dashboard');
 // });
-
+var User = require("./public/models/user");
+var Group = require("./public/models/group");
 app.get('/dashboard', function(request, response) {
-    response.render(__dirname + '/public/views/dashboard');
+   
+    //THIS ALL WORKS IT IS JUST COMMENTED OUT SINCE LOGIN IS NOT IMPLEMENTED YET
+    //Move this to the navigation partial.
+    // <% for(var i=0; i<groups.length; i++) {%>
+    //     <a href="/groupdashboard" class="side-button courses"><%= groups[i]["groupName"]%></a>
+    //  <% } %>
+    //https://stackoverflow.com/questions/29078753/how-to-reference-another-schema-in-my-mongoose-schema
+   // using the user's id we will find the groups
+//      User.findOne({_id: request.body.userId}).populate('groups').exec(function(error,user){
+//        if(error){
+//            console.log(error + request.body.userId);
+//            return response.status(500).send();
+//        }
+//        else {
+//            var userGroups = user["groups"]
+//            console.log("Groups: " + userGroups)
+//            response.render(__dirname + '/public/views/dashboard', {groups: userGroups});
+response.render(__dirname + '/public/views/dashboard');//delete this after everything else in this GET is uncommented
+//    return response.status(200).send();}
+//        });
+       
+   
 });
 
 app.get('/groupdashboard', function(request, response) {

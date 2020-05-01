@@ -24,10 +24,20 @@ router.post('/newComment',function(request,response){
            console.log(error+ request.body.groupId);
            return response.status(500).send();
        }
-      response.send(`Comment: "${newComment.text}" added!`);     
-      console.log(`Comment: "${newComment.text}" added!`);
-       return response.status(200).send();
+      
+       
    });
+
+    Comment.collection.insertOne(newComment,function(err,savedGroup){
+        if(err){
+            console.log(err);
+            return response.status(500).send();
+        }
+        response.send(`Comment: "${newComment.text}" added!`);     
+      console.log(`Comment: "${newComment.text}" added!`);
+        return response.status(200).send();
+        
+    });
 });
 
 module.exports = router

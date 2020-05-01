@@ -6,4 +6,7 @@ MainUserRouter.route("/newUser")
     MainUserRouter.route("/login")
     .post(require("./login"))
 
+    MainUserRouter.route("/joinGroup")
+    .post(require("./joinGroup"))
+
 module.exports = MainUserRouter;

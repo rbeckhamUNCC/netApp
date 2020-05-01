@@ -4,6 +4,10 @@ const MainCommentRouter = require("express").Router();
 MainCommentRouter.route("/newComment")
     .post(require("./newComment"))
 
+// "/comment/getComments"
+MainCommentRouter.route("/getComments")
+    .post(require("./getComments")) 
+
 // "/comment/deleteComment"
 MainCommentRouter.route("/deleteComment")
     .post(require("./deleteComment"))    

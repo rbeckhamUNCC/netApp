@@ -5,7 +5,7 @@ MainTaskRouter.route("/newTask")
     .post(require("./newTask"))
 
 // "/task/deleteTask"
-MainTaskRouter.route("/deleteTask")
-    .post(require("./deleteTask"))    
+// MainTaskRouter.route("/deleteTask")
+//     .post(require("./deleteTask"))    
 
 module.exports = MainTaskRouter;
