@@ -23,7 +23,11 @@
             <h2 id="recentActivityHeader2">Who is Attending?</h2>
         </div>
         <header id="monthDashboard">
-               <h1 id="dashboardHeader2">Month View</h1>
+          <% if (typeof group !== undefined) { %>
+            <h1 id="dashboardHeader2">Month View</h1>
+          <% } else { %>
+            <h1 id="dashboardHeader">Month View - <%= group.groupName %> </h1>
+          <% } %>
         </header>
        <div id="meetingTimes2">
            <table id="calendarTable" cellpadding="15" cellspace="15">

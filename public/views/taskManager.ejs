@@ -15,9 +15,16 @@
         <%- include('./partials/_GroupButtons.html') %>
       </div>
       <header id="taskManager">
-          <h1 id="taskManagerHeader">Task Manager
-          <a href="/addNewTask" class="groupbtn">Create New</a>
-          </h1>
+        <div class="task">
+          <% if (typeof group !== undefined) { %>
+            <h1 id="taskManagerHeader">Task Manager</h1>
+            <a href="/addNewTask" class="groupbtn new">Create New</a>
+          <% } else { %>
+            <h1 id="taskManagerHeader">Task Manager - <%= group.groupName %> </h1>
+            <a href="/addNewTask" class="groupbtn new">Create New</a>
+          <% } %>
+
+        </div>
       </header>
       <div class="dragndrop">
         <div class="div_lists">

@@ -614,6 +614,12 @@ a.terms {
   color: black;
   font-size: 30px;
   font-weight: normal;
+  float: left;
+  margin-top: 1.5rem;
+}
+
+.new {
+  float: right;
 }
 
 #createNewBtn {
