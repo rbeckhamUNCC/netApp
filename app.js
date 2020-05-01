@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', function(request, response) {
-    
+
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
@@ -79,6 +79,18 @@ app.get('/', function(request, response) {
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
+app.get('/addNewTask', function(request,response) {
+  response.sendFile(__dirname + '/public/views/addTaskModal.html');
+});
+
+app.get('/addGroup', function(request,response) {
+  response.sendFile(__dirname + '/public/views/addGroupModal.html');
+});
+
+app.get('/requestMeeting', function(request,response) {
+  response.sendFile(__dirname + '/public/views/requestMeetingModal.html');
+});
+
 //default route for the landing page
 // app.get('/dashboard', function(request, response) {
 //     response.render('dashboard');
@@ -108,6 +120,11 @@ app.get('/groupSettings', function(request, response) {
 app.get('/meetingTimes', function(request, response) {
   response.render(__dirname + '/public/views/groupMeetingTimes');
 })
+
+app.get('/taskManager', function(request, response) {
+  response.render(__dirname + '/public/views/taskManager');
+})
+
 
 
 //initialize and listen on a port

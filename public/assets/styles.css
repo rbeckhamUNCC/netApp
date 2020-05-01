@@ -160,6 +160,14 @@ table {
 #dashboard, #dashboard2 {
     border: 1px solid black;
     margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+#monthDashboard {
+  border: 1px solid black;
+  margin-bottom: 15px;
+  width: 65%;
+  float: left;
 }
 
 #dashboard2 {
@@ -244,7 +252,7 @@ table {
   border-bottom: 2px solid black;
 }
 
-.commentBtn, .urlBtn, .inviteBtn, .deleteGroup {
+.commentBtn, .urlBtn, .inviteBtn, .deleteGroup, .groupBtn {
   background-color: rgb(150, 45, 32);
   color: white;
   font-size: 18px;
@@ -252,31 +260,33 @@ table {
   width: 8rem;
 }
 
-.requestBtn {
-  background-color: rgb(150, 45, 32);
-  color: white;
-  font-size: 18px;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 1rem;
-  float: right;
-  width: 15%;
-}
-
 .urlBtn {
   padding: 10px 30px;
+  width: 9rem;
+}
+
+.groupBtn {
+  width: 9rem;
+  padding: 15px 5px;
+}
+
+.requestBtn {
+  width: 10rem;
+  float: right;
 }
 
 .commentBtn {
   padding: 10px 10px;
+  width: 9rem;
 }
 
 .inviteBtn {
   padding: 10px 5px;
+  width: 9rem;
 }
 
 .deleteDiv {
-  width: 98.6%;
+  width: 99.5%;
   margin-top: 3rem;
 }
 
@@ -409,6 +419,20 @@ h1.groupSettingsSubHead {
   padding: 10px 10px;
 }
 
+.pages {
+  background-color: rgb(241, 149, 95);
+  color: black;
+}
+
+.sideNavHover {
+  display: none;
+  background-color: rgb(150, 45, 32);
+}
+
+#classHover:hover ~ .sideNavHover {
+  display: block ;
+}
+
 /* CSS for my account */
 .peachBody {
   background-color: rgb(251, 229, 214);
@@ -443,11 +467,35 @@ h1.groupSettingsSubHead {
    font-size: 18px;
 } */
 
+.radioDiv {
+  margin: 5px 0 5px 0;
+}
+
 .inputsForRegister {
-  width: 70%;
-  line-height: 30px;
+  width: 100%;
+  line-height: 25px;
   padding: 10px;
+  margin: 15px 0;
   font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #ffffff;
+}
+
+.inputsForRegister2 {
+  width: 80%;
+  line-height: 25px;
+  padding: 10px;
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+.taskRadioBtn {
+  margin: 4% 15px 0 0;
+}
+
+.taskRadioBtn:checked, .taskRadioBtn:not(:checked) {
+  height: 18px;
+  width: 18px;
 }
 
 .formTitle {
@@ -477,7 +525,7 @@ h1.groupSettingsSubHead {
   padding: 10px 10px;
 }
 /* All CSS for the register and login pages */
-body.registerLoginBody {
+body.registerLoginBody, body.modalBody {
   background-color: #fbe3d4;
 }
 
@@ -526,7 +574,7 @@ div.input-box input::placeholder {
   color: #ffffff;
 }
 
-.registerAndLoginButton {
+.registerAndLoginButton, .modalSubmit {
   width: 100%;
   background: none;
   border: 2px solid #ffffff;
@@ -538,7 +586,7 @@ div.input-box input::placeholder {
   cursor: pointer;
 }
 
-.registerAndLoginButton:hover {
+.registerAndLoginButton:hover, .modalSubmit:hover {
   background-color: #ffffff;
   color: RGB(150, 58, 47);
   font-weight: bold;
@@ -554,4 +602,222 @@ a.terms {
   text-decoration: none;
   color: white;
   width: 100%;
+}
+
+/* CSS for task manager */
+#taskManager {
+  float: left;
+  margin: 15px;
+}
+
+#taskManagerHeader {
+  color: black;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+#createNewBtn {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-decoration: none;
+  background-color: rgb(150, 45, 32);
+  color: white;
+  text-decoration: none;
+  margin: 15px 2px;
+  cursor: pointer;
+}
+
+.box {
+  width: 25%;
+  display: inline-block;
+}
+
+.todoBox {
+  background-color: #D0D0D0;
+}
+
+.inProgressBox {
+  background-color: #FCF3CF;
+}
+
+.completedBox {
+  background-color: #D5F5E3;
+}
+
+.helpBox {
+  background-color: #F5B7B1;
+}
+
+#todoHeader {
+  background-color: #B0B0B0;
+  font-size: 26px;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#inProgressHeader {
+  background-color: #F9E79F;
+  font-size: 26px;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#completedHeader {
+  background-color: #ABEBC6;
+  font-size: 26px;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#helpHeader {
+  background-color: #F1948A;
+  font-size: 26px;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.container {
+   display: table;
+   width: 100%;
+}
+
+/* Specific CSS for the task manager drag and drop page */
+.taskManagerDiv {
+  box-sizing: border-box;
+}
+
+.dragndrop {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-flow: column;
+}
+
+.div_lists {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.div_lists .separate_list {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+  width: 100%;
+  min-width: 250px;
+  max-width: 350px;
+  height: 100%;
+  min-height: 150px;
+  margin: 0 35px;
+  padding: 8px;
+  transition: all 0.2s linear;
+}
+
+.div_lists .separate_list .list-item {
+  background-color: #962d20;
+  border-radius: 8px;
+  padding: 5px;
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.div_lists .separate_list .list-item h5 {
+  font-size: 25px;
+}
+
+.div_lists .separate_list .list-item p {
+  font-size: 18px;
+}
+
+/* add task modal css */
+.taskBox {
+  width: 400px;
+  height: 530px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+/* Partial CSS for group buttons */
+.groupButtons {
+  text-align: center;
+}
+
+.groupbtn {
+  text-align: center;
+  padding: 15px 30px;
+  border-radius: 3px;
+  font-size: 18px;
+  background-color: rgb(150, 45, 32);
+  color: white;
+  text-decoration: none;
+  margin: 15px 8px;
+  cursor: pointer;
+}
+
+.groupButtonDiv {
+  margin: 20px;
+}
+
+/* CSS for add group modal */
+.groupbox {
+  width: 400px;
+  height: 220px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+/* CSS for request meeting modal */
+.requestBox {
+  width: 400px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+input[type=Date] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat;
+}
+
+input[type=Date]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type=Date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+input[type=Time]::-webkit-inner-spin-button {
+  display: none;
 }
