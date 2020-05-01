@@ -581,6 +581,7 @@ a.terms {
   color: black;
   font-size: 30px;
   font-weight: normal;
+  display: inline-block;
 }
 
 #createNewBtn {
@@ -592,7 +593,7 @@ a.terms {
   background-color: rgb(150, 45, 32);
   color: white;
   text-decoration: none;
-  margin: 15px 2px;
+  margin: 0px 2px;
   cursor: pointer;
 }
 
@@ -660,7 +661,7 @@ a.terms {
 
 /* add task modal css */
 .taskBox {
-  width: 400px;
+  width: 500px;
   height: 400px;
   position: absolute;
   top: 50%;
@@ -671,4 +672,12 @@ a.terms {
   padding: 30px;
   border-radius: 8px;
   filter: drop-shadow(5px 10px .4em #000000);
+}
+
+h2#taskModalHeader {
+  text-align: center;
+}
+
+.taskRadioBtn {
+  display: inline-block;
 }
