@@ -18,7 +18,7 @@ var expressSession = require('./node_modules/express-session');
 const register = require('./public/routes/register.js');
 
 global.fullName = "Not Signed In";
-
+global.userId = "Not Signed In";
 
 //__MAYBE I NEED THESE FEW LINES????_______________________________________
 //set up a port
@@ -42,6 +42,7 @@ app.get('/', function(request, response) {
 
 app.get('/sign-out', function(request, response) {
     global.fullName = "Not Signed In";
+    global.userId = "Not Signed In";
     response.redirect("/");
 });
 
@@ -107,7 +108,7 @@ app.get('/dashboard', function(request, response) {
 response.render(__dirname + '/public/views/dashboard');//delete this after everything else in this GET is uncommented
 //    return response.status(200).send();}
 //        });
-       
+       console.log(global.userId);
    
 });
 
