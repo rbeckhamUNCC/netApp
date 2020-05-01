@@ -40,6 +40,11 @@ app.get('/', function(request, response) {
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
+app.get('/sign-out', function(request, response) {
+    global.fullName = "Not Signed In";
+    response.redirect("/");
+});
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -74,8 +79,16 @@ app.get('/', function(request, response) {
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
-app.get('/addTaskModal',(request,response,next) => {
+app.get('/addNewTask', function(request,response) {
   response.sendFile(__dirname + '/public/views/addTaskModal.html');
+});
+
+app.get('/addGroup', function(request,response) {
+  response.sendFile(__dirname + '/public/views/addGroupModal.html');
+});
+
+app.get('/requestMeeting', function(request,response) {
+  response.sendFile(__dirname + '/public/views/requestMeetingModal.html');
 });
 
 //default route for the landing page

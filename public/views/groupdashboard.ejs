@@ -20,8 +20,15 @@ and open the template in the editor.
     <%- include('./partials/_TopNavigationPartial.html') %>
 
     <div class="grid_12">
+         <div class="groupButtonDiv">
+           <%- include('./partials/_GroupButtons.html') %>
+         </div>
          <header id="dashboard">
-                <h1 id="dashboardHeader">This Week's Meeting Time - </h1>
+            <% if (typeof group !== undefined) { %>
+              <h1 id="dashboardHeader">This Week's Meeting Time</h1>
+            <% } else { %>
+              <h1 id="dashboardHeader">This Week's Meeting Time - <%= group.groupName %> </h1>
+            <% } %>
          </header>
         <div id="meetingTimes">
                 <table>
