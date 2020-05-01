@@ -8,4 +8,8 @@ MainGroupRouter.route("/newGroup")
 MainGroupRouter.route("/deleteGroup")
     .post(require("./deleteGroup"))    
 
+// "/group/getGroup/:groupId"
+MainGroupRouter.route("/getGroup/:groupId")
+    .get(require("./getGroup"))  
+
 module.exports = MainGroupRouter;
