@@ -2,16 +2,15 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 
-// "/group/joinGroup"
+// "/group/leaveGroup"
 var User = require("../../models/user");
 var Group = require("../../models/group");
 router.use(bodyParser.urlencoded({extended: true}));
 
-router.post('/joinGroup',function(request,response){
+router.post('/leaveGroup',function(request,response){
   
 
-   // the answer with 35 upvotes https://stackoverflow.com/questions/33049707/push-items-into-mongo-array-via-mongoose
-     Group.updateOne({_id: request.body.groupId}, { $push: { members: request.body.userId  } } , function(error,success){
+     Group.updateOne({_id: request.body.groupId}, { $pull: { members: request.body.userId  } } , function(error,success){
        if(error){
            console.log(error+ request.body.groupId);
            return response.status(500).send();
@@ -22,7 +21,7 @@ router.post('/joinGroup',function(request,response){
       
         
     });
-    User.updateOne({_id: request.body.userId}, { $push: { groups: request.body.groupId  } } , function(error,success){
+    User.updateOne({_id: request.body.userId}, { $pull: { groups: request.body.groupId  } } , function(error,success){
         if(error){
             console.log(error+ request.body.userId);
             return response.status(500).send();
