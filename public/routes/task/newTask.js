@@ -14,7 +14,7 @@ router.post('/newTask',function(request,response){
        taskName: request.body.taskName,
        creatorId: request.body.creatorId,
        //group:, //might not need as it would just be in the group's array...
-       status: "incomplete",
+       status: "not started",
        description: request.body.description,
    });
 
@@ -24,9 +24,7 @@ router.post('/newTask',function(request,response){
            console.log(error+ request.body.groupId);
            return response.status(500).send();
        }
-      response.send(`Task: "${newTask.description}" added!`);     
-      console.log(`Task: "${newTask.description}" added!`);
-       return response.status(200).send();
+             
    });
 
    Task.collection.insertOne(newTask,function(err,savedGroup){
@@ -34,8 +32,8 @@ router.post('/newTask',function(request,response){
         console.log(err);
         return response.status(500).send();
     }
-    response.send(`Task: "${newTask.text}" added!`);     
-  console.log(`Task: "${newTask.text}" added!`);
+    response.send(`Task: "${newTask.description}" added!`);     
+  console.log(`Task: "${newTask.description}" added!`);
     return response.status(200).send();
     
 });

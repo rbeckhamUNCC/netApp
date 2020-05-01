@@ -8,8 +8,12 @@ MainTaskRouter.route("/newTask")
 MainTaskRouter.route("/getTasks")
     .post(require("./getTasks"))
 
-// "/task/deleteTask"
+// "/task/deleteTask/:taskId"
 MainTaskRouter.route("/deleteTask/:taskId")
-    .get(require("./deleteTask"))    
+    .get(require("./deleteTask"))   
+    
+// "/task/updateStatus/:status"
+MainTaskRouter.route("/updateStatus/:status")
+    .get(require("./updateStatus"))
 
 module.exports = MainTaskRouter;
