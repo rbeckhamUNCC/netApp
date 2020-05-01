@@ -9,7 +9,7 @@ MainCommentRouter.route("/getComments")
     .post(require("./getComments")) 
 
 // "/comment/deleteComment"
-MainCommentRouter.route("/deleteComment")
-    .post(require("./deleteComment"))    
+MainCommentRouter.route("/deleteComment/:commentId")
+    .get(require("./deleteComment"))    
 
 module.exports = MainCommentRouter;

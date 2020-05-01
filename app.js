@@ -85,6 +85,7 @@ app.get('/', function(request, response) {
 // });
 var User = require("./public/models/user");
 var Group = require("./public/models/group");
+
 app.get('/dashboard', function(request, response) {
    
     //THIS ALL WORKS IT IS JUST COMMENTED OUT SINCE LOGIN IS NOT IMPLEMENTED YET

@@ -30,6 +30,17 @@ router.post('/newMeeting',function(request,response){
       console.log(`Meeting: "${newMeeting.text}" added!`);
        return response.status(200).send();
    });
+
+    Meeting.collection.insertOne(newMeeting,function(err,success){
+        if(err){
+            console.log(err);
+            return response.status(500).send();
+        }
+        response.send(`Meeting: "${newMeeting.text}" added!`);     
+    console.log(`Meeting: "${newMeeting.text}" added!`);
+        return response.status(200).send();
+        
+    });
 });
 
 module.exports = router

@@ -28,6 +28,17 @@ router.post('/newTask',function(request,response){
       console.log(`Task: "${newTask.description}" added!`);
        return response.status(200).send();
    });
+
+   Task.collection.insertOne(newTask,function(err,savedGroup){
+    if(err){
+        console.log(err);
+        return response.status(500).send();
+    }
+    response.send(`Task: "${newTask.text}" added!`);     
+  console.log(`Task: "${newTask.text}" added!`);
+    return response.status(200).send();
+    
+});
 });
 
 module.exports = router
