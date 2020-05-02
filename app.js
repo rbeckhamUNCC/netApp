@@ -83,7 +83,6 @@ app.get('/addNewTask', function(request,response) {
   response.sendFile(__dirname + '/public/views/addTaskModal.html');
 });
 
-<<<<<<< HEAD
 app.get('/updateTask', function(request, response) {
   response.sendFile(__dirname + '/public/views/updateTaskModal.html');
 })
@@ -91,8 +90,6 @@ app.get('/updateTask', function(request, response) {
 app.get('/editAvailability', function(request,response) {
   response.sendFile(__dirname + '/public/views/editAvailabilityModal.html');
 });
-
->>>>>>> 23d708f0e96233dbf85529ad554eaf99e6f60005
 
 app.get('/addGroup', function(request,response) {
   response.sendFile(__dirname + '/public/views/addGroupModal.html');
