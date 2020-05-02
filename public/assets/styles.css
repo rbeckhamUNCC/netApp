@@ -91,21 +91,21 @@ header#landing {
 
 
 .weekCalendar {
-    border: 2px solid black;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
+    background-color: white;
     color: black;
-    width: 200px;
+    width: 10%;
     padding: 15px;
     text-align: center;
 }
 
 .timeRow {
     border-top: none;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
+    background-color: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
     width: 200px;
-    padding: 30px;
     text-align: center;
     color: black;
 }
@@ -123,7 +123,7 @@ header#landing {
 }
 
 table {
-    border-spacing: 5px 0px;
+    border-spacing: 0px 0px;
 }
 
 .meetingTimes {
@@ -212,6 +212,7 @@ table {
   color: white;
   font-size: 20px;
   padding: 0px 5px;
+  margin-bottom: 20px;
 }
 
 .availabilityDays {
@@ -307,7 +308,7 @@ h1.groupSettingsSubHead {
 #urlinput, #commentinput, #groupNameInput, #inviteInput, #membersInput {
   line-height: 38px;
   border: 1px solid rgb(150, 45, 32);
-  width: 90%;
+  width: 89%;
   padding-left: 10px;
   font-size: 14px;
 }
@@ -458,6 +459,10 @@ h1.groupSettingsSubHead {
   display: grid;
   grid-template-columns: 800px 800px;
   padding-left: 130px;
+}
+
+#startTime, #endTime {
+  font-weight: bold;
 }
 
 /* #fname, #lname, #email, #password, #currentPassword, #verifyPassword {
@@ -826,4 +831,64 @@ input[type=Date]::-webkit-calendar-picker-indicator {
 
 input[type=Time]::-webkit-inner-spin-button {
   display: none;
+}
+
+/* Availability Modal */
+.availabilityBox {
+  width: 500px;
+  height: 450px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+#availabilityModalHeader {
+  margin-bottom: 10px;
+}
+#availabilityDropDown {
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 20px 0px 35px 0px;
+}
+
+#updateAvailability {
+  margin-top: 25px;
+}
+
+#checkbox {
+  font-size: 20px;
+  display: inline;
+  height: 15px;
+  width: 20px;
+}
+
+.availabilityListItem {
+  padding: 20px 5px;
+}
+
+#checkImg {
+  max-width: 23%;
+}
+
+#xImg {
+  max-width: 20%;
+}
+
+.leftSide {
+  width: 49%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.rightSide {
+  width: 49%;
+  float: right;
+  margin-bottom: 20px;
 }

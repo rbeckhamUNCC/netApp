@@ -15,11 +15,13 @@
     <div class="grid_12" id="availabilityGrid">
       <header id="myAvailability">
           <h1 id="availabilityHeader">My Availability</h1>
-          <button type="submit" value="Submit" class="groupmeet-btn accountBtns" style="wrap">Edit</button>
+          <a href="/editAvailability" type="submit" value="Submit" class="groupmeet-btn accountBtns">Edit</a>
       </header>
         <div class="meetingTimes">
           <table>
               <tr>
+                  <td class="weekCalendar" id="startTime">Start</td>
+                  <td class="weekCalendar" id="endTime">End</td>
                   <td class="weekCalendar">Mon</td>
                   <td class="weekCalendar">Tues</td>
                   <td class="weekCalendar">Wed</td>
@@ -29,13 +31,42 @@
                   <td class="weekCalendar">Sun</td>
               </tr>
               <tr>
-                  <th class="timeRow"></th>
-                  <th class="timeRow"></th>
-                  <th class="timeRow"></th>
-                  <th class="timeRow"></th>
-                  <th class="timeRow"></th>
-                  <th class="timeRow"></th>
-                  <th class="timeRow"></th>
+                  <th class="timeRow">
+                    <div class="availabilityListItem">
+                      <p>11:00am</p>
+                    </div></th>
+                  <th class="timeRow">
+                    <div class="availabilityListItem">
+                      <p>3:30pm</p>
+                    </div></th>
+                  <th class="timeRow">
+                    <div class="availabilityListItem">
+                      <img src="/assets/check.png" id="checkImg">
+                    </div></th>
+                  <th class="timeRow">
+                    <div class="availabilityListItem">
+                      <img src="/assets/check.png" id="checkImg">
+                    </div></th>
+                  <th class="timeRow">
+                    <div class="availabilityListItem">
+                      <img src="/assets/x.png" id="xImg">
+                    </div></th>
+                  <th class="timeRow">
+                      <div class="availabilityListItem">
+                        <img src="/assets/check.png" id="checkImg">
+                      </div></th>
+                  <th class="timeRow">
+                    <div class="availabilityListItem">
+                      <img src="/assets/x.png" id="xImg">
+                    </div></th>
+                  <th class="timeRow">
+                    <div class="availabilityListItem">
+                      <img src="/assets/x.png" id="xImg">
+                    </div></th>
+                  <th class="timeRow">
+                      <div class="availabilityListItem">
+                        <img src="/assets/check.png" id="checkImg">
+                      </div></th>
               </tr>
           </table>
         </div>
