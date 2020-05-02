@@ -15,7 +15,7 @@ var expressValidator = require('./node_modules/express-validator');
 var expressSession = require('./node_modules/express-session');
 
 
-const register = require('./public/routes/register.js');
+// const register = require('./public/routes/register.js');
 
 global.fullName = "Not Signed In";
 global.userId = "Not Signed In";
@@ -76,9 +76,9 @@ app.use('/assets', express.static('assets'));
 app.get('/login',(request,response,next) => {
   response.sendFile(__dirname + '/public/views/login.html');
 });
-app.get('/register',(request,response,next) => {
-    response.sendFile(__dirname + '/public/views/register.html');
-  });
+// app.get('/register',(request,response,next) => {
+//     response.sendFile(__dirname + '/public/views/register.html');
+//   });
 
 //default route for the landing page
 app.get('/', function(request, response) {
@@ -107,22 +107,23 @@ function getGroupButtons(req,res,path) {
 
     if(global.userId != "Not Signed In"){
         //https://stackoverflow.com/questions/29078753/how-to-reference-another-schema-in-my-mongoose-schema
-    // using the user's id we will find the groups
-    User.findOne({_id: global.userId}).populate('groups').exec(function(error,user){
-        if(error){
-            console.log(error + global.userId);
-            return res.status(500).send();
+        // using the user's id we will find the groups
+        User.findOne({_id: global.userId}).populate('groups').exec(function(error,user){
+            if(error){
+                console.log(error + global.userId);
+                return res.status(500).send();
+            }
+            else {
+                var userGroups = user["groups"]
+                console.log("Groups: " + userGroups)
+            return res.status("200").render(__dirname + path, {groups: userGroups});
+        // response.render(__dirname + '/public/views/dashboard');//delete this after everything else in this GET is uncommented
+        
         }
-        else {
-            var userGroups = user["groups"]
-            console.log("Groups: " + userGroups)
-            res.render(__dirname + path, {groups: userGroups});
-    // response.render(__dirname + '/public/views/dashboard');//delete this after everything else in this GET is uncommented
-    return res.status(200).send();}
         });
-    }
+    }   
     else{
-        res.render(__dirname + path)
+        return res.status("200").render(__dirname + path)
     }
 }
 app.get('/dashboard', function(request, response) {
@@ -146,19 +147,19 @@ app.get('/MyAvailability', function(request, response) {
 });
 
 app.get('/MyAccount', function(request, response) {
-    response.render(__dirname + '/public/views/MyAccount');
+    getGroupButtons(request, response, '/public/views/MyAccount');
 });
 
 app.get('/groupSettings', function(request, response) {
-  response.render(__dirname + '/public/views/groupSettings');
+  getGroupButtons(request, response, '/public/views/groupSettings');
 })
 
 app.get('/meetingTimes', function(request, response) {
-  response.render(__dirname + '/public/views/groupMeetingTimes');
+  getGroupButtons(request, response, '/public/views/groupMeetingTimes');
 })
 
 app.get('/taskManager', function(request, response) {
-  response.render(__dirname + '/public/views/taskManager');
+  getGroupButtons(request, response, '/public/views/taskManager');
 })
 
 

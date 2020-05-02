@@ -30,11 +30,13 @@ router.get('/getGroup/:groupId',function(request,response){
                 // sessionStorage.setItem('tasks', group["tasks"])
 
                 global.groupName = name;
+                global.groupId = group["_id"];
                 global.groupMembers = members
                 global.groupMeetings = meetings
                 global.groupTasks = tasks
                 global.groupComments = comments
                 console.log(global.groupName)
+                console.log(global.groupId)
                 console.log(global.groupMembers)
                 console.log(global.groupMeetings)
                 console.log(global.groupTasks)
