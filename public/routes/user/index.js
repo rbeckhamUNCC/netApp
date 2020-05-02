@@ -6,6 +6,19 @@ MainUserRouter.route("/newUser")
     MainUserRouter.route("/login")
     .post(require("./login"))
 
+
+
+    MainUserRouter.route("/posts")
+    .get(require("./login"))
+
+    MainUserRouter.route("/logout")
+    .delete(require("./login"))
+
+    MainUserRouter.route("/token")
+    .post(require("./login"))
+
+
+
     MainUserRouter.route("/joinGroup")
     .post(require("./joinGroup"))
 
