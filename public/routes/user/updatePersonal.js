@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 
 // "/user/updatePersonal"
 var User = require("../../models/user");
-var Group = require("../../models/group");
 router.use(bodyParser.urlencoded({extended: true}));
 
 router.post('/updatePersonal',function(request,response){

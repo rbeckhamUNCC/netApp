@@ -7,7 +7,7 @@ const UserSchema = new Schema({
     groups: [{type: Schema.Types.ObjectId, ref: 'Group'}],
     email: String,
     password: String,
-    availableTimes: Array,
+    availableTimes: {type: Map, of: Array},
     //image will be a file
     profilePic: String
 

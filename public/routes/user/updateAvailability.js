@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 // "/user/updatePassword"
 var User = require("../../models/user");
+var Group = require("../../models/group");
 router.use(bodyParser.urlencoded({extended: true}));
 
 router.post('/updatePassword',function(request,response){
@@ -13,7 +14,7 @@ router.post('/updatePassword',function(request,response){
     var oldPass = request.body.oldPass;
     
 
-    User.updateOne({_id: global.userId, password: oldPass}, { $set: { password: request.body.newPass } } , function(error,success){
+    User.updateOne({_id: global.userId}, { $set: { availableTimes: request.body.newPass } } , function(error,success){
         if(error){
             console.log(error+ global.userId);
             return response.status(500).send();
