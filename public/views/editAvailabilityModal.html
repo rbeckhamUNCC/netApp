@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="icon" href="/assets/favicon.png">
+    <title>GroupMeet - Edit Availability</title>
+</head>
+<body class="modalBody">
+  <div class="availabilityBox">
+      <h2 id="availabilityModalHeader">Edit Your Availability</h2>
+    <form name="addTask" method="GET" action="">
+      <label for="day" >Day:</label><br>
+      <div class="leftSide">
+      <input type="checkbox" name="checkbox" id="checkbox"> Monday</input><br>
+      <input type="checkbox" name="checkbox"id="checkbox"> Tuesday</input><br>
+      <input type="checkbox" name="checkbox" id="checkbox"> Wednesday</input><br>
+      <input type="checkbox" name="checkbox" id="checkbox"> Thursday</input><br>
+      </div>
+      <div class="rightSide">
+      <input type="checkbox" name="checkbox" id="checkbox"> Friday</input><br>
+      <input type="checkbox" name="checkbox" id="checkbox"> Saturday</input><br>
+      <input type="checkbox" name="checkbox" id="checkbox"> Sunday</input>
+      <br>
+      <br>
+      </div>
+      <p style="padding-top: 20px;">Times that you're available between:</p>
+      <label>From </label>
+      <select id="availabilityDropDown" name="day">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11" selected>11</option>
+        <option value="12">12</option>
+      </select>
+      <select id="availabilityDropDown" name="day">
+        <option value="00">00</option>
+        <option value="15">15</option>
+        <option value="30">30</option>
+        <option value="45">45</option>
+      </select>
+      <select id="availabilityDropDown" name="day">
+        <option value="am">AM</option>
+        <option value="pm">PM</option>
+      </select>
+      <label> to </label>
+      <select id="availabilityDropDown" name="day">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+      <select id="availabilityDropDown" name="day">
+        <option value="00">00</option>
+        <option value="15">15</option>
+        <option value="30" selected>30</option>
+        <option value="45">45</option>
+      </select>
+      <select id="availabilityDropDown" name="day">
+        <option value="am">AM</option>
+        <option value="pm" selected>PM</option>
+      </select><br />
+      <input type="checkbox" name="checkbox" id="checkbox">Apply these times to all days</input>
+      <input class="modalSubmit" id="updateAvailability" type="submit" value="Update Availability">
+    </form>
+  </div>
+</body>
+</html>
