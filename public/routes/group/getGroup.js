@@ -17,10 +17,10 @@ router.get('/getGroup/:groupId',function(request,response){
             else {
                
                 var name = group["groupName"]
-                var members = group["members"]
-                var comments = group["comments"]
-                var meetings = group["meetings"]
-                var tasks = group["tasks"]
+                var members = group["members"].toString()
+                var comments = group["comments"].toString()
+                var meetings = group["meetings"].toString()
+                var tasks = group["tasks"].toString()
 
                 //set a session for the group and parts
                 //Commented out because I am using postman and it wont work with it
@@ -29,8 +29,19 @@ router.get('/getGroup/:groupId',function(request,response){
                 // sessionStorage.setItem('comments', group["comments"])
                 // sessionStorage.setItem('tasks', group["tasks"])
 
+                global.groupName = name;
+                global.groupMembers = members;
+                global.groupMeetings = meetings;
+                global.groupTasks = tasks;
+                global.groupComments = comments;
+                console.log(global.groupName)
+                console.log(global.groupMembers)
+                console.log(global.groupMeetings)
+                console.log(global.groupTasks)
+                console.log(global.groupComments)
+                
                 console.log(`\ngroupName: ${name}\n\nmembers: ${members}\n\ncomments: ${comments}\n\nmeetings: ${meetings}\n\ntasks: ${tasks}`)
-        return response.status(200).send();}
+        return response.status(200).redirect(("/groupdashboard"))}
             });
 });
 

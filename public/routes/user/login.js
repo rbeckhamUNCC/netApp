@@ -38,6 +38,7 @@ router.post('/login',function(request,response){
 
        // console.log(request.session.fullName);
        // after logged in
+       global.userId = user["_id"];
        return response.status(200).redirect(("/dashboard"));
     });
 });

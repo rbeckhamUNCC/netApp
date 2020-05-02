@@ -46,10 +46,13 @@
 
       <!-- Use a for each loop to loop through the groups of the user -->
       <!-- CODE IS IN THE GET ROUTE FOR /DASHBOARD, cut and paste it here (the for loop)-->
-      <a href="/groupdashboard" class="side-button courses">Capstone</a>
+      <% for(var i=0; i<groups.length; i++) {%>
+        <a href="/group/getGroup/<%= groups[i]['_id']%>" class="side-button courses"><%= groups[i]["groupName"]%></a>
+     <% } %>
+      <!-- <a href="/groupdashboard" class="side-button courses">Capstone</a>
       <a href="/groupdashboard" class="side-button courses">ITIS 3320</a>
       <a href="/groupdashboard" class="side-button courses">ITIS 4166</a>
-      <a href="/groupdashboard" class="side-button courses">ITIS 4420</a>
+      <a href="/groupdashboard" class="side-button courses">ITIS 4420</a> -->
     </div>
   </body>
 </html>

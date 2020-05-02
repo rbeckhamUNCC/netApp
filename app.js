@@ -19,6 +19,11 @@ const register = require('./public/routes/register.js');
 
 global.fullName = "Not Signed In";
 global.userId = "Not Signed In";
+global.groupName = "Not Signed In";
+global.groupMembers = "Not Signed In";
+global.groupMeetings = "Not Signed In";
+global.groupTasks = "Not Signed In";
+global.groupComments = "Not Signed In";
 
 //__MAYBE I NEED THESE FEW LINES????_______________________________________
 //set up a port
@@ -91,23 +96,21 @@ app.get('/dashboard', function(request, response) {
    
     //THIS ALL WORKS IT IS JUST COMMENTED OUT SINCE LOGIN IS NOT IMPLEMENTED YET
     //Move this to the navigation partial.
-    // <% for(var i=0; i<groups.length; i++) {%>
-    //     <a href="/groupdashboard" class="side-button courses"><%= groups[i]["groupName"]%></a>
-    //  <% } %>
+   
     //https://stackoverflow.com/questions/29078753/how-to-reference-another-schema-in-my-mongoose-schema
    // using the user's id we will find the groups
-//      User.findOne({_id: request.body.userId}).populate('groups').exec(function(error,user){
-//        if(error){
-//            console.log(error + request.body.userId);
-//            return response.status(500).send();
-//        }
-//        else {
-//            var userGroups = user["groups"]
-//            console.log("Groups: " + userGroups)
-//            response.render(__dirname + '/public/views/dashboard', {groups: userGroups});
-response.render(__dirname + '/public/views/dashboard');//delete this after everything else in this GET is uncommented
-//    return response.status(200).send();}
-//        });
+     User.findOne({_id: global.userId}).populate('groups').exec(function(error,user){
+       if(error){
+           console.log(error + global.userId);
+           return response.status(500).send();
+       }
+       else {
+           var userGroups = user["groups"]
+           console.log("Groups: " + userGroups)
+           response.render(__dirname + '/public/views/dashboard', {groups: userGroups});
+// response.render(__dirname + '/public/views/dashboard');//delete this after everything else in this GET is uncommented
+   return response.status(200).send();}
+       });
        console.log(global.userId);
    
 });

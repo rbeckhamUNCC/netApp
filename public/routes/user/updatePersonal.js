@@ -9,9 +9,9 @@ router.use(bodyParser.urlencoded({extended: true}));
 
 router.post('/updatePersonal',function(request,response){
   // the current users info needs to pupulate the forms data in this case
-    User.updateOne({_id: request.body.userId}, { $set: { firstName: request.body.firstName, lastName: request.body.lastName, email: request.body.email  } } , function(error,success){
+    User.updateOne({_id: global.userId}, { $set: { firstName: request.body.firstName, lastName: request.body.lastName, email: request.body.email  } } , function(error,success){
         if(error){
-            console.log(error+ request.body.userId);
+            console.log(error);
             return response.status(500).send();
         }
        response.send(`User personal updated!`);     

@@ -14,9 +14,9 @@ router.post('/updatePassword',function(request,response){
     var oldPass = request.body.oldPass;
     
 
-    User.updateOne({_id: request.body.userId, password: oldPass}, { $set: { password: request.body.newPass } } , function(error,success){
+    User.updateOne({_id: global.userId, password: oldPass}, { $set: { password: request.body.newPass } } , function(error,success){
         if(error){
-            console.log(error+ request.body.userId);
+            console.log(error+ global.userId);
             return response.status(500).send();
         }
        response.send(`User password updated!`);     
