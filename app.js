@@ -91,37 +91,46 @@ app.get('/', function(request, response) {
 // });
 var User = require("./public/models/user");
 var Group = require("./public/models/group");
+function getGroupButtons(req,res,path) {
 
+    if(global.userId != "Not Signed In"){
+        //https://stackoverflow.com/questions/29078753/how-to-reference-another-schema-in-my-mongoose-schema
+    // using the user's id we will find the groups
+    User.findOne({_id: global.userId}).populate('groups').exec(function(error,user){
+        if(error){
+            console.log(error + global.userId);
+            return res.status(500).send();
+        }
+        else {
+            var userGroups = user["groups"]
+            console.log("Groups: " + userGroups)
+            res.render(__dirname + path, {groups: userGroups});
+    // response.render(__dirname + '/public/views/dashboard');//delete this after everything else in this GET is uncommented
+    return res.status(200).send();}
+        });
+    }
+    else{
+        res.render(__dirname + path)
+    }
+}
 app.get('/dashboard', function(request, response) {
    
     //THIS ALL WORKS IT IS JUST COMMENTED OUT SINCE LOGIN IS NOT IMPLEMENTED YET
     //Move this to the navigation partial.
-   
-    //https://stackoverflow.com/questions/29078753/how-to-reference-another-schema-in-my-mongoose-schema
-   // using the user's id we will find the groups
-     User.findOne({_id: global.userId}).populate('groups').exec(function(error,user){
-       if(error){
-           console.log(error + global.userId);
-           return response.status(500).send();
-       }
-       else {
-           var userGroups = user["groups"]
-           console.log("Groups: " + userGroups)
-           response.render(__dirname + '/public/views/dashboard', {groups: userGroups});
-// response.render(__dirname + '/public/views/dashboard');//delete this after everything else in this GET is uncommented
-   return response.status(200).send();}
-       });
+   getGroupButtons(request, response,'/public/views/dashboard')
        console.log(global.userId);
    
 });
 
 app.get('/groupdashboard', function(request, response) {
-    response.render(__dirname + '/public/views/groupdashboard');
+    getGroupButtons(request, response,'/public/views/groupdashboard')
+    // response.render(__dirname + '/public/views/groupdashboard');
 });
 
 
 app.get('/MyAvailability', function(request, response) {
-    response.render(__dirname + '/public/views/MyAvailability');
+    getGroupButtons(request, response,'/public/views/MyAvailability')
+    // response.render(__dirname + '/public/views/MyAvailability');
 });
 
 app.get('/MyAccount', function(request, response) {
