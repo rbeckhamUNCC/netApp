@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', function(request, response) {
-    
+
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
@@ -83,6 +83,18 @@ app.get('/register',(request,response,next) => {
 //default route for the landing page
 app.get('/', function(request, response) {
     response.sendFile(__dirname + '/public/views/landing.html');
+});
+
+app.get('/addNewTask', function(request,response) {
+  response.sendFile(__dirname + '/public/views/addTaskModal.html');
+});
+
+app.get('/addGroup', function(request,response) {
+  response.sendFile(__dirname + '/public/views/addGroupModal.html');
+});
+
+app.get('/requestMeeting', function(request,response) {
+  response.sendFile(__dirname + '/public/views/requestMeetingModal.html');
 });
 
 //default route for the landing page
@@ -136,6 +148,18 @@ app.get('/MyAvailability', function(request, response) {
 app.get('/MyAccount', function(request, response) {
     response.render(__dirname + '/public/views/MyAccount');
 });
+
+app.get('/groupSettings', function(request, response) {
+  response.render(__dirname + '/public/views/groupSettings');
+})
+
+app.get('/meetingTimes', function(request, response) {
+  response.render(__dirname + '/public/views/groupMeetingTimes');
+})
+
+app.get('/taskManager', function(request, response) {
+  response.render(__dirname + '/public/views/taskManager');
+})
 
 
 
