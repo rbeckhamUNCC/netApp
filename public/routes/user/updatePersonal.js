@@ -14,12 +14,12 @@ router.post('/updatePersonal',function(request,response){
             console.log(error);
             return response.status(500).send();
         }
-       response.send(`User personal updated!`);     
+       //response.send(`User personal updated!`);     
        console.log(`User personal updated!`);
-
-
+       global.fullName = request.body.firstName + ' ' + request.body.lastName;
+       global.email = request.body.email;
        //might want to redirect to the same page so as to refresh
-       return response.status(200).send();
+       return response.status(200).redirect(("/dashboard"));
     
    });
 

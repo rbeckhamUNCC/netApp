@@ -19,12 +19,12 @@ router.post('/updatePassword',function(request,response){
             console.log(error+ global.userId);
             return response.status(500).send();
         }
-       response.send(`User password updated!`);     
+      //  response.send(`User password updated!`);     
        console.log(`User password updated!`);
 
 
        //might want to redirect to the same page so as to refresh
-       return response.status(200).send();
+       return response.status(200).redirect(("/dashboard"));
     
    });
 

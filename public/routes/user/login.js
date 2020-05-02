@@ -35,7 +35,7 @@ router.post('/login',function(request,response){
        //set logged in user session
        // below needs to be uncommented so that sessions can be set, maybe this needs to be put somewhere else
        global.fullName = user['firstName'] + ' ' + user['lastName'];
-
+       global.email = user['email']
        // console.log(request.session.fullName);
        // after logged in
        global.userId = user["_id"];
