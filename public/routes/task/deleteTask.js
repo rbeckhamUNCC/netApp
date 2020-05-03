@@ -16,9 +16,9 @@ router.get('/deleteTask/:taskId',function(request,response){
         }
             
        console.log(`task: ${request.params.taskId} removed!`);
-              response.send(`REDIRECT back to the place that was having the tasks!`);  
+           //   response.send(`REDIRECT back to the place that was having the tasks!`);  
 
-       return response.status(200).send();
+       return response.status(200).redirect('/groupDashboard');
          
      });
 });

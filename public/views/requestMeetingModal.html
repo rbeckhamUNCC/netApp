@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="icon" href="/assets/favicon.png">
+    <title>GroupMeet - Add A Task</title>
+</head>
+<body class="modalBody">
+  <div class="requestBox">
+      <h2>Request Meeting</h2>
+    <form name="requestMeeting" method="GET" action="/meetingTimes">
+      <label for="date" class="taskLabel">Date:</label>
+      <input type="Date" class="inputsForRegister" name="date"></input><br />
+      <label for="time" class="taskLabel">Time:</label>
+      <input type="Time" class="inputsForRegister" name="time"></input><br />
+      <label for="location" class="taskLabel">Location:</label>
+      <input type="text" class="inputsForRegister" placeholder="Meeting Place" name="location"></input><br />
+      <label for="requestJoin" class="taskLabel">Who:</label><br>
+      <div class="radioDiv">
+        <input type="checkbox" class="taskRadioBtn" name="requestJoin">Jim Reeves</input><br>
+        <input type="checkbox" class="taskRadioBtn" name="requestJoin">Sally Fields</input><br>
+        <input type="checkbox" class="taskRadioBtn" name="requestJoin">Bob Dylan</input>
+      </div>
+      <input class="modalSubmit" type="submit" value="Send Request">
+    </form>
+  </div>

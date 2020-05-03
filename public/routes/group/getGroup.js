@@ -29,8 +29,21 @@ router.get('/getGroup/:groupId',function(request,response){
                 // sessionStorage.setItem('comments', group["comments"])
                 // sessionStorage.setItem('tasks', group["tasks"])
 
+                global.groupName = name;
+                global.groupId = group["_id"];
+                global.groupMembers = members
+                global.groupMeetings = meetings
+                global.groupTasks = tasks
+                global.groupComments = comments
+                console.log(global.groupName)
+                console.log(global.groupId)
+                console.log(global.groupMembers)
+                console.log(global.groupMeetings)
+                console.log(global.groupTasks)
+                console.log(global.groupComments)
+                
                 console.log(`\ngroupName: ${name}\n\nmembers: ${members}\n\ncomments: ${comments}\n\nmeetings: ${meetings}\n\ntasks: ${tasks}`)
-        return response.status(200).send();}
+        return response.status(200).redirect(("/groupdashboard"))}
             });
 });
 

@@ -15,10 +15,15 @@ var expressValidator = require('./node_modules/express-validator');
 var expressSession = require('./node_modules/express-session');
 
 
-const register = require('./public/routes/register.js');
+// const register = require('./public/routes/register.js');
 
 global.fullName = "Not Signed In";
 global.userId = "Not Signed In";
+global.groupName = "Not Signed In";
+global.groupMembers = "Not Signed In";
+global.groupMeetings = "Not Signed In";
+global.groupTasks = "Not Signed In";
+global.groupComments = "Not Signed In";
 
 //__MAYBE I NEED THESE FEW LINES????_______________________________________
 //set up a port
@@ -36,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', function(request, response) {
-    
+
     response.sendFile(__dirname + '/public/views/landing.html');
 });
 
@@ -71,13 +76,33 @@ app.use('/assets', express.static('assets'));
 app.get('/login',(request,response,next) => {
   response.sendFile(__dirname + '/public/views/login.html');
 });
-app.get('/register',(request,response,next) => {
-    response.sendFile(__dirname + '/public/views/register.html');
-  });
+// app.get('/register',(request,response,next) => {
+//     response.sendFile(__dirname + '/public/views/register.html');
+//   });
 
 //default route for the landing page
 app.get('/', function(request, response) {
     response.sendFile(__dirname + '/public/views/landing.html');
+});
+
+app.get('/addNewTask', function(request,response) {
+  response.render(__dirname + '/public/views/addTaskModal.ejs');
+});
+
+app.get('/updateTask', function(request, response) {
+  response.sendFile(__dirname + '/public/views/updateTaskModal.html');
+})
+
+app.get('/editAvailability', function(request,response) {
+  response.sendFile(__dirname + '/public/views/editAvailabilityModal.html');
+});
+
+app.get('/addGroup', function(request,response) {
+  response.sendFile(__dirname + '/public/views/addGroupModal.html');
+});
+
+app.get('/requestMeeting', function(request,response) {
+  response.sendFile(__dirname + '/public/views/requestMeetingModal.html');
 });
 
 //default route for the landing page
@@ -86,44 +111,64 @@ app.get('/', function(request, response) {
 // });
 var User = require("./public/models/user");
 var Group = require("./public/models/group");
+function getGroupButtons(req,res,path) {
 
+    if(global.userId != "Not Signed In"){
+        //https://stackoverflow.com/questions/29078753/how-to-reference-another-schema-in-my-mongoose-schema
+        // using the user's id we will find the groups
+        User.findOne({_id: global.userId}).populate('groups').exec(function(error,user){
+            if(error){
+                console.log(error + global.userId);
+                return res.status(500).send();
+            }
+            else {
+                var userGroups = user["groups"]
+                console.log("Groups: " + userGroups)
+            return res.status("200").render(__dirname + path, {groups: userGroups});
+        // response.render(__dirname + '/public/views/dashboard');//delete this after everything else in this GET is uncommented
+        
+        }
+        });
+    }   
+    else{
+        return res.status("200").render(__dirname + path)
+    }
+}
 app.get('/dashboard', function(request, response) {
    
     //THIS ALL WORKS IT IS JUST COMMENTED OUT SINCE LOGIN IS NOT IMPLEMENTED YET
     //Move this to the navigation partial.
-    // <% for(var i=0; i<groups.length; i++) {%>
-    //     <a href="/groupdashboard" class="side-button courses"><%= groups[i]["groupName"]%></a>
-    //  <% } %>
-    //https://stackoverflow.com/questions/29078753/how-to-reference-another-schema-in-my-mongoose-schema
-   // using the user's id we will find the groups
-//      User.findOne({_id: request.body.userId}).populate('groups').exec(function(error,user){
-//        if(error){
-//            console.log(error + request.body.userId);
-//            return response.status(500).send();
-//        }
-//        else {
-//            var userGroups = user["groups"]
-//            console.log("Groups: " + userGroups)
-//            response.render(__dirname + '/public/views/dashboard', {groups: userGroups});
-response.render(__dirname + '/public/views/dashboard');//delete this after everything else in this GET is uncommented
-//    return response.status(200).send();}
-//        });
+   getGroupButtons(request, response,'/public/views/dashboard')
        console.log(global.userId);
    
 });
 
 app.get('/groupdashboard', function(request, response) {
-    response.render(__dirname + '/public/views/groupdashboard');
+    getGroupButtons(request, response,'/public/views/groupdashboard')
+    // response.render(__dirname + '/public/views/groupdashboard');
 });
 
 
 app.get('/MyAvailability', function(request, response) {
-    response.render(__dirname + '/public/views/MyAvailability');
+    getGroupButtons(request, response,'/public/views/MyAvailability')
+    // response.render(__dirname + '/public/views/MyAvailability');
 });
 
 app.get('/MyAccount', function(request, response) {
-    response.render(__dirname + '/public/views/MyAccount');
+    getGroupButtons(request, response, '/public/views/MyAccount');
 });
+
+app.get('/groupSettings', function(request, response) {
+  getGroupButtons(request, response, '/public/views/groupSettings');
+})
+
+app.get('/meetingTimes', function(request, response) {
+  getGroupButtons(request, response, '/public/views/groupMeetingTimes');
+})
+
+app.get('/taskManager', function(request, response) {
+  getGroupButtons(request, response, '/public/views/taskManager');
+})
 
 
 

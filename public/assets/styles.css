@@ -80,30 +80,41 @@ header#landing {
 
 .grid_12 {
     /* float: left;  was being ignored because of display: inline; above*/
-    position: fixed;
+    /* position: fixed; */
     display: flex;
     flex-direction: column;
     margin-left: 157px;
     margin-top: 15px;
     width: 90%;
-    overflow-x: hidden;
 }
 
 
 .weekCalendar {
-    border: 2px solid black;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
+    background-color: white;
     color: black;
-    width: 200px;
+    width: 10%;
     padding: 15px;
     text-align: center;
 }
 
 .timeRow {
     border-top: none;
+    background-color: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 200px;
+    text-align: center;
+    color: black;
+}
+
+.CalendarDay {
+    border-top: none;
     border-left: 2px solid black;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
+    height: 107px;
     width: 200px;
     padding: 30px;
     text-align: center;
@@ -111,11 +122,20 @@ header#landing {
 }
 
 table {
-    border-spacing: 5px 0px;
+    border-spacing: 0px 0px;
 }
 
 .meetingTimes {
   margin: 0px 15px;
+}
+
+#meetingTimes2 {
+  width:65%;
+  float: left;
+}
+
+#calendarTable {
+  width: 100%;
 }
 
 #dashboardHeader {
@@ -125,9 +145,33 @@ table {
     background-color: #fbe3d4;
 }
 
-#dashboard {
+#dashboardHeader2 {
+    color: black;
+    font-size: 26px;
+    padding: 5px 10px;
+    background-color: #fbe3d4;
+}
+
+.floatBtn {
+  padding: 20px 20px;
+}
+
+#dashboard, #dashboard2 {
     border: 1px solid black;
     margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+#monthDashboard {
+  border: 1px solid black;
+  margin-bottom: 15px;
+  width: 65%;
+  float: left;
+}
+
+#dashboard2 {
+  width: 65%;
+  float: left;
 }
 
 #recentActivityHeader {
@@ -139,10 +183,26 @@ table {
     border-bottom: 2px solid black;
 }
 
-#recentActivity {
+#recentActivityHeader2 {
+  color: black;
+  background-color: #fbe3d4;
+  font-size: 22px;
+  text-align: center;
+  border-bottom: 2px solid black;
+  padding: 7px 10px;
+}
+
+#recentActivity, #recentActivity2 {
     border: 1px solid black;
     height: 470px;
     margin-top: 15px;
+}
+
+#recentActivity2 {
+  width: 33%;
+  height: 650px;
+  float: right;
+  margin-top: 0;
 }
 
 #availabilityHeader {
@@ -151,11 +211,16 @@ table {
   color: white;
   font-size: 20px;
   padding: 0px 5px;
+  margin-bottom: 20px;
 }
 
 .availabilityDays {
   color: black;
   font-size: 16px;
+}
+
+.calendarLeft {
+  width: 100%;
 }
 
 /* CSS for groupdashboard.html */
@@ -187,31 +252,69 @@ table {
   border-bottom: 2px solid black;
 }
 
-.commentBtn, .urlBtn {
+.commentBtn, .urlBtn, .inviteBtn, .deleteGroup, .groupBtn {
   background-color: rgb(150, 45, 32);
   color: white;
   font-size: 18px;
   border-radius: 5px;
+  width: 8rem;
 }
 
 .urlBtn {
   padding: 10px 30px;
+  width: 9rem;
+}
+
+.groupBtn {
+  width: 9rem;
+  padding: 15px 5px;
+}
+
+.requestBtn {
+  width: 10rem;
+  float: right;
 }
 
 .commentBtn {
   padding: 10px 10px;
+  width: 9rem;
+}
+
+.inviteBtn {
+  padding: 10px 5px;
+  width: 9rem;
+}
+
+.deleteDiv {
+  width: 99.5%;
+  margin-top: 3rem;
+}
+
+.deleteGroup {
+  padding: 10px 5px;
+  float: right;
+}
+
+h1.groupSettingsSubHead {
+  color: #962d20;
+  font-size: 1.5rem;
 }
 
 .groupLinks {
   padding-left: 5px;
 }
 
-#urlinput, #commentinput {
+#urlinput, #commentinput, #groupNameInput, #inviteInput, #membersInput {
   line-height: 38px;
   border: 1px solid rgb(150, 45, 32);
-  width: 90%;
+  width: 89%;
   padding-left: 10px;
   font-size: 14px;
+}
+
+.groupSettingsInput {
+  line-height: 40px;
+  font-size: 30px;
 }
 
 /* Add CSS for _TopNavigationPartial */
@@ -290,7 +393,7 @@ table {
 
 .navigation-side #line {
   border: 1px solid rgb(150, 45, 32);
-  width: 90%;
+  width: 100%;
 }
 
 .navigation-side .side-button {
@@ -316,6 +419,20 @@ table {
   padding: 10px 10px;
 }
 
+.pages {
+  background-color: rgb(241, 149, 95);
+  color: black;
+}
+
+.sideNavHover {
+  display: none;
+  background-color: rgb(150, 45, 32);
+}
+
+#classHover:hover ~ .sideNavHover {
+  display: block ;
+}
+
 /* CSS for my account */
 .peachBody {
   background-color: rgb(251, 229, 214);
@@ -330,7 +447,7 @@ table {
   width: 220px;
 }
 
-#myAccount, #myAvailability {
+#myAccount, #myAvailability, #groupSettings {
   margin: auto;
   text-align: center;
   padding-top: 30px;
@@ -343,6 +460,10 @@ table {
   padding-left: 130px;
 }
 
+#startTime, #endTime {
+  font-weight: bold;
+}
+
 /* #fname, #lname, #email, #password, #currentPassword, #verifyPassword {
    width: 70%;
    line-height: 30px;
@@ -350,11 +471,35 @@ table {
    font-size: 18px;
 } */
 
+.radioDiv {
+  margin: 5px 0 5px 0;
+}
+
 .inputsForRegister {
-  width: 70%;
-  line-height: 30px;
+  width: 100%;
+  line-height: 25px;
   padding: 10px;
+  margin: 15px 0;
   font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #ffffff;
+}
+
+.inputsForRegister2 {
+  width: 80%;
+  line-height: 25px;
+  padding: 10px;
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+.taskRadioBtn {
+  margin: 4% 15px 0 0;
+}
+
+.taskRadioBtn:checked, .taskRadioBtn:not(:checked) {
+  height: 18px;
+  width: 18px;
 }
 
 .formTitle {
@@ -384,7 +529,7 @@ table {
   padding: 10px 10px;
 }
 /* All CSS for the register and login pages */
-body.registerLoginBody {
+body.registerLoginBody, body.modalBody {
   background-color: #fbe3d4;
 }
 
@@ -433,7 +578,7 @@ div.input-box input::placeholder {
   color: #ffffff;
 }
 
-.registerAndLoginButton {
+.registerAndLoginButton, .modalSubmit {
   width: 100%;
   background: none;
   border: 2px solid #ffffff;
@@ -445,7 +590,7 @@ div.input-box input::placeholder {
   cursor: pointer;
 }
 
-.registerAndLoginButton:hover {
+.registerAndLoginButton:hover, .modalSubmit:hover {
   background-color: #ffffff;
   color: RGB(150, 58, 47);
   font-weight: bold;
@@ -461,4 +606,306 @@ a.terms {
   text-decoration: none;
   color: white;
   width: 100%;
+}
+
+/* CSS for task manager */
+#taskManager {
+  float: left;
+  margin: 15px;
+}
+
+#taskManagerHeader {
+  color: black;
+  font-size: 30px;
+  font-weight: normal;
+  float: left;
+  margin-top: 1.5rem;
+}
+
+.new {
+  float: right;
+}
+
+#createNewBtn {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-decoration: none;
+  background-color: rgb(150, 45, 32);
+  color: white;
+  text-decoration: none;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+
+.box {
+  width: 25%;
+  display: inline-block;
+}
+
+.todoBox {
+  background-color: #D0D0D0;
+}
+
+.inProgressBox {
+  background-color: #FCF3CF;
+}
+
+.completedBox {
+  background-color: #D5F5E3;
+}
+
+.helpBox {
+  background-color: #F5B7B1;
+}
+
+#todoHeader {
+  background-color: #B0B0B0;
+  font-size: 26px;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#inProgressHeader {
+  background-color: #F9E79F;
+  font-size: 26px;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#completedHeader {
+  background-color: #ABEBC6;
+  font-size: 26px;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#helpHeader {
+  background-color: #F1948A;
+  font-size: 26px;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.container {
+   display: table;
+   width: 100%;
+}
+
+/* Specific CSS for the task manager NEW page */
+table.taskManagerTable {
+  color: black;
+  border-collapse: separate;
+  border-spacing: 20px;
+  width: 100%;
+}
+
+.tableHeader {
+  font-size: 20px;
+  border: 1px solid #962d20;
+  background-color: #962d20;
+  color: white;
+  padding: 20px 0;
+}
+
+th {
+  position: sticky;
+  top: 0;
+}
+
+.tableCell {
+  font-size: 18px;
+  text-align: center;
+  border: 1px solid #fbe3d4;
+  background-color: #fbe3d4;
+  padding: 25px 20px;
+  color: #000000;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.actionButtonsTM {
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid rgb(150,45,32);
+  background-color: rgb(150,45,32);
+  padding: 12px;
+  margin: 5px 8px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.actionButtonsTM:hover {
+  background-color: rgba(150,45,32,0.8);
+}
+
+.tableDescription {
+  width: 500px;
+  padding: 15px;
+}
+
+.progressTD {
+  width: 200px;
+}
+
+.hiddenOverflow {
+  overflow: hidden;
+  height: 20%;
+}
+
+.scrollable {
+  overflow-y: scroll;
+  min-width: 200px;
+  height: 600px;
+}
+
+/* add task modal css */
+.taskBox {
+  width: 400px;
+  height: 530px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+/* Partial CSS for group buttons */
+.groupButtons {
+  text-align: center;
+}
+
+.groupbtn {
+  text-align: center;
+  padding: 15px 30px;
+  border-radius: 3px;
+  font-size: 18px;
+  background-color: rgb(150, 45, 32);
+  color: white;
+  text-decoration: none;
+  margin: 15px 8px;
+  cursor: pointer;
+}
+
+.groupButtonDiv {
+  margin: 20px;
+}
+
+/* CSS for add group modal */
+.groupbox {
+  width: 400px;
+  height: 220px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+/* CSS for request meeting modal */
+.requestBox {
+  width: 400px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+input[type=Date] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat;
+}
+
+input[type=Date]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type=Date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+input[type=Time]::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* Availability Modal */
+.availabilityBox {
+  width: 500px;
+  height: 450px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+#availabilityModalHeader {
+  margin-bottom: 10px;
+}
+#availabilityDropDown {
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 20px 0px 35px 0px;
+}
+
+#updateAvailability {
+  margin-top: 25px;
+}
+
+#checkbox {
+  font-size: 20px;
+  display: inline;
+  height: 15px;
+  width: 20px;
+}
+
+.availabilityListItem {
+  padding: 20px 5px;
+}
+
+#checkImg {
+  max-width: 23%;
+}
+
+#xImg {
+  max-width: 20%;
+}
+
+.leftSide {
+  width: 49%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.rightSide {
+  width: 49%;
+  float: right;
+  margin-bottom: 20px;
 }

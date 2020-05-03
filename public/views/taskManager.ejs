@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+
+    <title>My Account</title>
+</head>
+<body>
+  <%- include('./partials/_TopNavigationPartial.html') %>
+  <div class="grid_12 taskManagerDiv">
+      <div class="groupButtonDiv">
+        <%- include('./partials/_GroupButtons.html') %>
+      </div>
+      <header id="taskManager">
+        <div class="task">
+    
+            <h1 id="taskManagerHeader">Task Manager for <%= groupName %> </h1>
+            <a href="/addNewTask" class="groupbtn new">Create New</a>
+    
+        </div>
+      </header>
+      <div class="hiddenOverflow">
+        <div class="scrollable">
+          <table class="taskManagerTable">
+            <thead>
+              <tr>
+                <th class="tableHeader">Name</th>
+                <th class="tableHeader">Task</th>
+                <th class="tableHeader">Task Description</th>
+                <th class="tableHeader">Progress</th>
+                <th class="tableHeader">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tableCell">Matthew McCoy</td>
+                <td class="tableCell">Task Manager</td>
+                <td class="tableCell tableDescription">
+                  This is a description of what I am writing for this task.
+                  This is a description of what I am writing for this task.
+                  This is a description of what I am writing for this task.
+                </td>
+                <td class="tableCell">Need Help</td>
+                <td class="tableCell">
+                  <a href="/updateTask" class="actionButtonsTM">Update</a>
+                  <a href="#" class="actionButtonsTM">Delete</a>
+                </td>
+              </tr>
+             
+                <% for(var i=0; i<global.groupTasks.length; i++) {%>                  
+                  <tr>
+                    <td class="tableCell"><%= global.groupTasks[i]["creatorName"]%></td>
+                    <td class="tableCell"><%= global.groupTasks[i]["taskName"]%></td>
+                    <td class="tableCell tableDescription">
+                      <%= global.groupTasks[i]["description"]%>
+                    </td>
+                    <td class="tableCell"><%= global.groupTasks[i]["status"]%></td>
+                    <td class="tableCell">
+                      <a href="/updateTask/<%= global.groupTasks[i]['_id']%>" class="actionButtonsTM">Update</a>
+                      <a href="/task/deleteTask/<%= global.groupTasks[i]['_id']%>" class="actionButtonsTM">Delete</a>
+                    </td>
+                  </tr>
+                <% } %>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+  <script type="text/javascript" src="/assets/dragndrop.js"></script>
+</body>

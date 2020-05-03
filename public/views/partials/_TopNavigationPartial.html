@@ -11,7 +11,7 @@
     <div class="navigation-top">
       <div class="image-box">
         <!-- Image for Logo -->
-        <a href="#"><img src="/assets/small_logo_header.png" alt="groupmeet logo" width="100px" height="100px"></a>
+        <a href="/dashboard"><img src="/assets/small_logo_header.png" alt="groupmeet logo" width="100px" height="100px"></a>
       </div>
 
       <!-- Main navigation -->
@@ -39,17 +39,22 @@
       <div class="">
         <a href="/sign-out" class="side-button">Sign Out</a>
         <hr id="line">
-        <a href="#" class="side-button">Add Group</a>
+        <a href="/addGroup" class="side-button">Add Group</a>
       </div>
 
       <div class="between"></div>
 
       <!-- Use a for each loop to loop through the groups of the user -->
       <!-- CODE IS IN THE GET ROUTE FOR /DASHBOARD, cut and paste it here (the for loop)-->
-      <a href="/groupdashboard" class="side-button courses">Capstone</a>
+      <% if(typeof groups != 'undefined') { %>
+        <% for(var i=0; i<groups.length; i++) {%>
+          <a href="/group/getGroup/<%= groups[i]['_id']%>" class="side-button courses"><%= groups[i]["groupName"]%></a>
+        <% } %>
+      <% } %>
+      <!-- <a href="/groupdashboard" class="side-button courses">Capstone</a>
       <a href="/groupdashboard" class="side-button courses">ITIS 3320</a>
       <a href="/groupdashboard" class="side-button courses">ITIS 4166</a>
-      <a href="/groupdashboard" class="side-button courses">ITIS 4420</a>
+      <a href="/groupdashboard" class="side-button courses">ITIS 4420</a> -->
     </div>
   </body>
 </html>
