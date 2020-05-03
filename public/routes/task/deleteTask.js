@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 
+const getGroupFunction = require('../group/getGroupFunction');
+
 var Task = require("../../models/task");
 var Group = require("../../models/group");
 router.use(bodyParser.urlencoded({extended: true}));
@@ -17,8 +19,8 @@ router.get('/deleteTask/:taskId',function(request,response){
             
        console.log(`task: ${request.params.taskId} removed!`);
            //   response.send(`REDIRECT back to the place that was having the tasks!`);  
-
-       return response.status(200).redirect('/groupDashboard');
+           getGroupFunction.getGroupFunc();
+       return response.status(200).redirect('/taskManager');
          
      });
 });

@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="icon" href="/assets/favicon.png">
+    <title>GroupMeet - Update Task</title>
+</head>
+<body class="modalBody">
+  <div class="taskBox">
+      <h2>Update Task</h2>
+    <form name="addTask" method="POST" action="/task/updateStatus">      
+      <div class="radioDiv">
+        <input type="radio" class="taskRadioBtn" name="status" value ="To Do"></input>To Do<br>
+        <input type="radio" class="taskRadioBtn" name="status" value ="In Progress"></input>In Progress<br>
+        <input type="radio" class="taskRadioBtn" name="status" value ="Completed">Completed</input><br>
+        <input type="radio" class="taskRadioBtn" name="status" value ="Help">Help</input>
+      </div>
+      <input type="hidden" name="fullName" value= <%= global.fullName %>>
+      <input type="hidden" name="groupId" value= <%= global.groupId %>>
+      <input type="hidden" name="taskId" value= <%= global.taskId %>>
+      <input class="modalSubmit" type="submit" value="Update Task">
+    </form>
+  </div>

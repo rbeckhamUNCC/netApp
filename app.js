@@ -170,6 +170,10 @@ app.get('/taskManager', function(request, response) {
   getGroupButtons(request, response, '/public/views/taskManager');
 })
 
+app.get('/updateTask/:taskId', function(request, response) {
+    global.taskId = request.params.taskId
+    getGroupButtons(request, response, '/public/views/updateTaskModal', {taskId: request.params.taskId});
+  })
 
 
 //initialize and listen on a port

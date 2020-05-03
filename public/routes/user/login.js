@@ -38,7 +38,7 @@ router.post('/login',function(request,response){
        global.email = user['email']
        // console.log(request.session.fullName);
        // after logged in
-       global.userId = user["_id"];
+       global.userId = user["_id"].toString();
        return response.status(200).redirect(("/dashboard"));
     });
 });

@@ -32,19 +32,25 @@ router.post('/newGroup',function(request,response){
    Group.find({groupName: request.body.groupName})
    .exec()
    .then(group => {
-     //If group exists just add the user to the group
-     console.log("adding user to group since group exists!")
-    
-     if(group.length >= 1){
-       
+         
+    // If group exists just add the user to the group
+     if(group.length != 0){
+       console.log("adding user to group since group exists!")
           Group.updateOne({_id: group[0]["_id"]}, { $push: { members: global.userId  } } , function(error,success){
             if(error){
                 console.log(error);
                 return response.status(500).send();
             }
-                        
+            User.updateOne({_id: global.userId}, { $push: { groups: group[0]["_id"]  } } , function(error,success){
+              if(error){
+                  console.log(error);
+                  return response.status(500).send();
+              }
+              //response.send(`User and Group updated!`);     
+              console.log(`Group ${group[0]["_id"]} added to groups of user: ${global.userId}!`);
+              return response.status(200).redirect(("/dashboard"));
+           })
         });
-        
       } else {
         // Group does not exist so create one
         console.log("creating group!")
@@ -57,21 +63,25 @@ router.post('/newGroup',function(request,response){
          // response.send(`Group: ${newGroup.groupName} added!`);
           console.log(savedGroup.ops[0].groupName);
           console.log(`Group: ${newGroup.groupName} added!`);
+
+          User.updateOne({_id: global.userId}, { $push: { groups: savedGroup.ops[0]._id  } } , function(error,success){
+              if(error){
+                  console.log(error);
+                  return response.status(500).send();
+              }
+              //response.send(`User and Group updated!`);     
+              console.log(`Group ${savedGroup.ops[0]._id} added to groups of user: ${global.userId}!`);
+              return response.status(200).redirect(("/dashboard"));
           
-        });
+          });
+        })
+          
+              
+     
+
+        
         
       }
-
-      User.updateOne({_id: global.userId}, { $push: { groups: group[0]["_id"]  } } , function(error,success){
-        if(error){
-            console.log(error);
-            return response.status(500).send();
-        }
-        //response.send(`User and Group updated!`);     
-        console.log(`Group ${group[0]["_id"]} added to groups of user: ${global.userId}!`);
-        return response.status(200).redirect(("/dashboard"));
-    
-    })
     });
      
 });

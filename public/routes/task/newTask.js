@@ -7,6 +7,8 @@ var Task = require("../../models/task");
 var Group = require("../../models/group");
 router.use(bodyParser.urlencoded({extended: true}));
 
+const getGroupFunction = require('../group/getGroupFunction');
+
 router.post('/newTask',function(request,response){
    // console.log(request.body.groupId)   
    
@@ -34,6 +36,8 @@ router.post('/newTask',function(request,response){
     }
     //response.send(`Task: "${newTask.description}" added!`);     
   console.log(`Task: "${newTask.description}" added!`);
+  //updates the groups info
+  getGroupFunction.getGroupFunc();
     return response.status(200).redirect("/taskManager");
     
 });

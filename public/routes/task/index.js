@@ -12,8 +12,8 @@ MainTaskRouter.route("/getTasks")
 MainTaskRouter.route("/deleteTask/:taskId")
     .get(require("./deleteTask"))   
     
-// "/task/updateStatus/:status"
-MainTaskRouter.route("/updateStatus/:status")
-    .get(require("./updateStatus"))
+// "/task/updateStatus"
+MainTaskRouter.route("/updateStatus")
+    .post(require("./updateStatus"))
 
 module.exports = MainTaskRouter;
