@@ -24,6 +24,7 @@ global.groupMembers = "Not Signed In";
 global.groupMeetings = "Not Signed In";
 global.groupTasks = "Not Signed In";
 global.groupComments = "Not Signed In";
+global.groupUrls = "Not Signed In";
 
 //__MAYBE I NEED THESE FEW LINES????_______________________________________
 //set up a port

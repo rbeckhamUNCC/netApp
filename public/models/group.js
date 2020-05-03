@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-var User = require("../models/user");
 
 const GroupSchema = new Schema({
     groupName: String,
@@ -8,6 +7,7 @@ const GroupSchema = new Schema({
     members: [{type: Schema.Types.ObjectId, ref: 'User'}],
     meetings: [{type: Schema.Types.ObjectId, ref: 'Meeting'}],
     comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
+    urls: [{type: Schema.Types.ObjectId, ref: 'Url'}],
     tasks: [{type: Schema.Types.ObjectId, ref: 'Task'}],
     //image will be a file
     //groupImage: String,

@@ -52,9 +52,11 @@ and open the template in the editor.
                 </table>
             </div>
             <div class="groupLinks">
-              <form name="register-form" method="POST" action="/user/login">
+              <form name="register-form" method="POST" action="/url/newUrl">
                 <div id="addURL">
-                  <input size="100" placeholder="URL: https://app.groupme.com/chats" type="text" id="urlinput" name="url">
+                  <input size="100" placeholder="URL: https://app.groupme.com/chats" type="text" id="urlinput" name="text">
+                  <input type="hidden" name="fullName" value= <%= global.fullName %>>
+                  <input type="hidden" name="groupId" value= <%= global.groupId %>>
                   <button type="submit" value="Submit" class="groupmeet-btn urlBtn">Add URL</button>
                 </div>
               </form>
@@ -70,7 +72,16 @@ and open the template in the editor.
           <div class="availabilityWrapper">
             <div class="grid_6">
                 <h2 id="boxHeader">Urls</h2>
-                <div id="urlBox"></div>
+                <div id="urlBox">
+                  <% for(var i=0; i<global.groupUrls.length; i++) {%>                  
+                    
+                    <p style="color:black"><%= global.groupUrls[i]["creatorName"]%>: 
+                    <a href="<%= global.groupUrls[i]['text']%>"><%= global.groupUrls[i]['text']%></a></p>
+                    <p style="color:black"> Created: <%= global.groupUrls[i]["created"]%></p>
+                      <a href="/url/deleteUrl/<%= global.groupUrls[i]['_id']%>" class="actionButtonsTM">Delete</a>
+                   <br>
+                <% } %>
+                </div>
             </div>
             <div class="grid_6">
                 <h2 id="boxHeader">Comments</h2>
@@ -79,6 +90,7 @@ and open the template in the editor.
                     
                       <p style="color:black"><%= global.groupComments[i]["creatorName"]%>: 
                       <%= global.groupComments[i]["text"]%></p>
+                      <p style="color:black"> Created: <%= global.groupComments[i]["created"]%></p>
                         <a href="/comment/deleteComment/<%= global.groupComments[i]['_id']%>" class="actionButtonsTM">Delete</a>
                      <br>
                   <% } %>
