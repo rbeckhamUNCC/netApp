@@ -106,7 +106,7 @@ app.get('/addGroup', function(request,response) {
 });
 
 app.get('/requestMeeting', function(request,response) {
-  response.sendFile(__dirname + '/public/views/requestMeetingModal.html');
+    response.render(__dirname + '/public/views/requestMeetingModal.ejs');
 });
 
 //default route for the landing page
@@ -167,7 +167,7 @@ app.get('/groupSettings', function(request, response) {
 })
 
 app.get('/meetingTimes', function(request, response) {
-  getGroupButtons(request, response, '/public/views/groupMeetingTimes');
+  getGroupButtons(request, response, '/public/views/meetingManager');
 })
 
 app.get('/taskManager', function(request, response) {
