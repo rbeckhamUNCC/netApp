@@ -11,9 +11,11 @@ router.post('/updatePassword',function(request,response){
   // the current users info needs to pupulate the forms data in this case
 
   //this needs the bcrypt think to function to hash correctly so it compares the right thing
-    var oldPass = request.body.oldPass;
-    var param = ""
-
+        // var days = request.body.oldPass;
+        // var param = ""
+        // switch(days){
+            
+        // }
     User.updateOne({_id: global.userId}, { $set: { availableTimes: request.body.newPass } } , function(error,success){
         if(error){
             console.log(error+ global.userId);
