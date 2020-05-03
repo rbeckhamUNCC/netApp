@@ -80,32 +80,31 @@ header#landing {
 
 .grid_12 {
     /* float: left;  was being ignored because of display: inline; above*/
-    position: fixed;
+    /* position: fixed; */
     display: flex;
     flex-direction: column;
     margin-left: 157px;
     margin-top: 15px;
     width: 90%;
-    overflow-x: hidden;
 }
 
 
 .weekCalendar {
-    border: 2px solid black;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
+    background-color: white;
     color: black;
-    width: 200px;
+    width: 10%;
     padding: 15px;
     text-align: center;
 }
 
 .timeRow {
     border-top: none;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
+    background-color: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
     width: 200px;
-    padding: 30px;
     text-align: center;
     color: black;
 }
@@ -123,7 +122,7 @@ header#landing {
 }
 
 table {
-    border-spacing: 5px 0px;
+    border-spacing: 0px 0px;
 }
 
 .meetingTimes {
@@ -212,6 +211,7 @@ table {
   color: white;
   font-size: 20px;
   padding: 0px 5px;
+  margin-bottom: 20px;
 }
 
 .availabilityDays {
@@ -307,7 +307,7 @@ h1.groupSettingsSubHead {
 #urlinput, #commentinput, #groupNameInput, #inviteInput, #membersInput {
   line-height: 38px;
   border: 1px solid rgb(150, 45, 32);
-  width: 90%;
+  width: 89%;
   padding-left: 10px;
   font-size: 14px;
 }
@@ -393,7 +393,7 @@ h1.groupSettingsSubHead {
 
 .navigation-side #line {
   border: 1px solid rgb(150, 45, 32);
-  width: 90%;
+  width: 100%;
 }
 
 .navigation-side .side-button {
@@ -458,6 +458,10 @@ h1.groupSettingsSubHead {
   display: grid;
   grid-template-columns: 800px 800px;
   padding-left: 130px;
+}
+
+#startTime, #endTime {
+  font-weight: bold;
 }
 
 /* #fname, #lname, #email, #password, #currentPassword, #verifyPassword {
@@ -631,7 +635,7 @@ a.terms {
   background-color: rgb(150, 45, 32);
   color: white;
   text-decoration: none;
-  margin: 15px 2px;
+  margin: 0px 2px;
   cursor: pointer;
 }
 
@@ -697,53 +701,71 @@ a.terms {
    width: 100%;
 }
 
-/* Specific CSS for the task manager drag and drop page */
-.taskManagerDiv {
-  box-sizing: border-box;
-}
-
-.dragndrop {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  flex-flow: column;
-}
-
-.div_lists {
-  display: flex;
-  flex: 1;
+/* Specific CSS for the task manager NEW page */
+table.taskManagerTable {
+  color: black;
+  border-collapse: separate;
+  border-spacing: 20px;
   width: 100%;
-  overflow-x: scroll;
 }
 
-.div_lists .separate_list {
-  display: flex;
-  flex-flow: column;
-  flex: 1;
-  width: 100%;
-  min-width: 250px;
-  max-width: 350px;
-  height: 100%;
-  min-height: 150px;
-  margin: 0 35px;
-  padding: 8px;
-  transition: all 0.2s linear;
-}
-
-.div_lists .separate_list .list-item {
+.tableHeader {
+  font-size: 20px;
+  border: 1px solid #962d20;
   background-color: #962d20;
-  border-radius: 8px;
-  padding: 5px;
-  text-align: center;
-  margin: 10px 0px;
+  color: white;
+  padding: 20px 0;
 }
 
-.div_lists .separate_list .list-item h5 {
-  font-size: 25px;
+th {
+  position: sticky;
+  top: 0;
 }
 
-.div_lists .separate_list .list-item p {
+.tableCell {
   font-size: 18px;
+  text-align: center;
+  border: 1px solid #fbe3d4;
+  background-color: #fbe3d4;
+  padding: 25px 20px;
+  color: #000000;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.actionButtonsTM {
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid rgb(150,45,32);
+  background-color: rgb(150,45,32);
+  padding: 12px;
+  margin: 5px 8px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.actionButtonsTM:hover {
+  background-color: rgba(150,45,32,0.8);
+}
+
+.tableDescription {
+  width: 500px;
+  padding: 15px;
+}
+
+.progressTD {
+  width: 200px;
+}
+
+.hiddenOverflow {
+  overflow: hidden;
+  height: 20%;
+}
+
+.scrollable {
+  overflow-y: scroll;
+  min-width: 200px;
+  height: 600px;
 }
 
 /* add task modal css */
@@ -826,4 +848,64 @@ input[type=Date]::-webkit-calendar-picker-indicator {
 
 input[type=Time]::-webkit-inner-spin-button {
   display: none;
+}
+
+/* Availability Modal */
+.availabilityBox {
+  width: 500px;
+  height: 450px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid RGB(150, 58, 47);
+  background-color: RGB(150, 58, 47);
+  padding: 30px;
+  border-radius: 8px;
+  filter: drop-shadow(5px 10px .4em #000000);
+}
+
+#availabilityModalHeader {
+  margin-bottom: 10px;
+}
+#availabilityDropDown {
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 20px 0px 35px 0px;
+}
+
+#updateAvailability {
+  margin-top: 25px;
+}
+
+#checkbox {
+  font-size: 20px;
+  display: inline;
+  height: 15px;
+  width: 20px;
+}
+
+.availabilityListItem {
+  padding: 20px 5px;
+}
+
+#checkImg {
+  max-width: 23%;
+}
+
+#xImg {
+  max-width: 20%;
+}
+
+.leftSide {
+  width: 49%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.rightSide {
+  width: 49%;
+  float: right;
+  margin-bottom: 20px;
 }
