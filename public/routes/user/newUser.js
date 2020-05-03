@@ -58,26 +58,13 @@ router.post('/newUser',function(request,response){
             // var token = jwt.sign(newUser, signOptions);
             // console.log("Token created: " + token);
 
-          var  token =  jwt.sign({
-              data: 'foobar'},
-              'secret',
-              { expiresIn: '1h' }
-            );
+          // var  token =  jwt.sign({
+          //     data: 'foobar'},
+          //     'secret',
+          //     { expiresIn: '1h' }
+          //   );
 
-            console.log("Token created: " + token);
-
-            // ******HAVENT TRIED YET************
-            // const token = jwt.create(claims, 'top-secret-phrase');
-            // token.setExpiration(new Date().getTime() + 60*1000);
-            // response.send(token.compact());
-
-            // const token = jwt.sign({ fullName: newUser.firstName + " " + newUser.lastName, userId: newUser._id},
-
-                // // process.env.JWT_KEY,
-                // "secret", //THIS SHOULD BE CHANGED TO PULL FROM A NODEMON.JSON FILE BUT I CANT GET IT TO WORK RIGHT NOW, LINE ABOVE THIS NEEDS TO WORK
-                // {
-                //   expiresIn: "1h"
-                // });
+            // console.log("Token created: " + token);
 
           User.collection.insertOne(newUser,function(err,savedUser){
             if(err){

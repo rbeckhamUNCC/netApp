@@ -4,36 +4,25 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 var User = require("../../models/user");
 const bcrypt = require("bcrypt");
+
 const jwt = require("jsonwebtoken");
+const verify = require('../verifyToken');
+
 //configure app to use session
 // var expressSession = require('express-session');
 router.use(bodyParser.urlencoded({extended: true}));
 
-//register session to app
-// router.use(expressSession(
-//         {
-//             secret:"67i66igfi6&*6i%$&%^&U",
-//             resave: false,
-//             saveUninitialized: false
-//         }
-// ));
-
-const posts = [
-  {
-  username: 'harry',
-  title: 'Post 1'
-},
-{
-email: 'hermione@h.com',
-title: 'Post 2'
-}
-]
-
-router.get('/posts', authenticateToken, (req, res) =>{
-  res.json(posts.filter(post => post.username === req.user.email))
+router.get('/posts',verify,(req, res) =>{
+  // res.json(posts.filter(post => post.username === req.user.email))
+  res.json({
+    posts: {
+      title: 'first post',
+      description: 'random data to prevent access to'
+    }
+  });
 })
 
-//logout user
+//logout user, destroys accessToken
 router.get('/logout', (req,res) => {
     // request.session.destroy();
     const accessToken = req.body.token
@@ -43,7 +32,7 @@ router.get('/logout', (req,res) => {
     }).send();
 }); //end logout
 
-router.post('/login',  (req,res, next) => {
+router.post('/login', (req,res, next) => {
     //specify user to find by username and password
     User.find({email: req.body.email})
     .exec()
@@ -54,7 +43,7 @@ router.post('/login',  (req,res, next) => {
           message: 'Authorization failed 1'
         }); // end if 'user not found'
       } //end if(user.length <1)
-      bcrypt.compare(req.body.password, user[0].password, (err,result) => {
+    const validPass = bcrypt.compare(req.body.password, user[0].password, (err,result) => {
         if (err){
           //wrong password
           return res.status(401).json({
@@ -64,21 +53,34 @@ router.post('/login',  (req,res, next) => {
 
         //Successful login
         if (res){
-        const firstName = req.body.firstName
-        const user = {name: firstName}
-        // const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-        const accessToken = generateAccessToken(user)
-          return res.status(200).json({
-            message: 'Successful login',
-            // ***********
-            accessToken: accessToken
-            // token: token
-          }); // end success message
+          console.log("successful login for ")
+          const token = jwt.sign({email: req.body.email }, process.env.ACCESS_TOKEN_SECRET);
+           res.header('auth-token', token).send(token);
+
+           // return res.status(200).json({
+           //     message: 'Successful login'
+           //     // ***********
+           //     // accessToken: accessToken
+           //     // token: token
+           //   }); // end success message
+
+
+          //   res.header('auth-token', token).send(token);
+        // const firstName = req.body.firstName
+        // const user = {name: firstName}
+        // // const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
+        // const accessToken = generateAccessToken(user)
+        //   return res.status(200).json({
+        //     message: 'Successful login',
+        //     // ***********
+        //     accessToken: accessToken
+        //     // token: token
+        //   }); // end success message
         } //end if(result)
 
-        res.status(401).json({
-          message: "Auth failed 3"
-        });
+    //     res.status(401).json({
+    //       message: "Auth failed 3"
+    //     });
       }); //end bcrypt password comparison
     })
 
@@ -89,6 +91,20 @@ router.post('/login',  (req,res, next) => {
       }); // end catch json return data
     }); //end catch
 }); //end login
+
+// router.post('/login', async (req, res) => {
+//
+//   const { error } = loginValidation(req.body);
+//   if(error) return res.status(400).send(error.details[0].message);
+//   const user = await User.findOne({ email: req.body.email });
+//   if(!user) return res.status(400).send('Email is not found');
+//
+//   const validPass = await bcrypt.compare(req.body.password,user.password);
+//   if(!validPass) return res.status(400).send('Invalid password');
+//
+//   const token = jwt.sign({_id: user._id }, process.env.ACCESS_TOKEN_SECRET);
+//   res.header('auth-token', token).send(token);
+// });
 
 function generateAccessToken(user){
   return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,
