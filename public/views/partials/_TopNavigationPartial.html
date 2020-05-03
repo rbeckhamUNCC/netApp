@@ -27,12 +27,17 @@
     <!-- side navigation -->
     <div class="navigation-side">
       <!-- put in the profile picture from the database -->
+<<<<<<< HEAD
       <% if(userPic == 'Not Signed In') { %>
         <img src="/assets/avatar.png" alt="avatar" width="100px" height="100px">
       <% } else { %>
         <img src="<%= userPic %>" alt="avatar" width="100px" height="100px">
         <% } %>
       
+=======
+      <!-- <img src="/assets/avatar.png" alt="avatar" width="100px" height="100px"> -->
+      <img src= "<%global.profilePic%>" alt="avatar" width="100px" height="100px">
+>>>>>>> rob3
 
       <!-- for name and email - add from database -->
       <h4 id="name">
