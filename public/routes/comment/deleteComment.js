@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 
 var Comment = require("../../models/comment");
 var Group = require("../../models/group");
+
+
+const getGroupFunction = require('../group/getGroupFunction');
+
 router.use(bodyParser.urlencoded({extended: true}));
 
 // "/comment/deleteComment/"
@@ -16,9 +20,10 @@ router.get('/deleteComment/:commentId',function(request,response){
         }
             
        console.log(`Comment: ${request.params.commentId} removed!`);
-              response.send(`REDIRECT back to the place that was having the comments to being!`);  
+              
 
-       return response.status(200).send();
+              getGroupFunction.getGroupFunc();    
+              return response.status(200).redirect("/groupDashboard");
          
      });
 });

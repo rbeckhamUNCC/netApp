@@ -52,14 +52,20 @@ and open the template in the editor.
                 </table>
             </div>
             <div class="groupLinks">
-              <div id="addURL">
-                <input size="100" placeholder="URL: https://app.groupme.com/chats" type="text" id="urlinput" name="url">
-                <button type="submit" value="Submit" class="groupmeet-btn urlBtn">Add URL</button>
-              </div>
-              <div id="addComment">
-                <input size="100" placeholder="COMMENT: when is our assignment due?" type="text" id="commentinput" name="comment">
-                <button type="submit" value="Submit" class="groupmeet-btn commentBtn">Add Comment</button>
-              </div>
+              <form name="register-form" method="POST" action="/user/login">
+                <div id="addURL">
+                  <input size="100" placeholder="URL: https://app.groupme.com/chats" type="text" id="urlinput" name="url">
+                  <button type="submit" value="Submit" class="groupmeet-btn urlBtn">Add URL</button>
+                </div>
+              </form>
+              <form name="register-form" method="POST" action="/comment/newComment">
+                <div id="addComment">
+                  <input size="100" placeholder="COMMENT: when is our assignment due?" type="text" id="commentinput" name="text">
+                  <input type="hidden" name="fullName" value= <%= global.fullName %>>
+                  <input type="hidden" name="groupId" value= <%= global.groupId %>>
+                  <button type="submit" value="Submit" class="groupmeet-btn commentBtn">Add Comment</button>
+                </div>
+              </form>
             </div>
           <div class="availabilityWrapper">
             <div class="grid_6">
@@ -68,7 +74,15 @@ and open the template in the editor.
             </div>
             <div class="grid_6">
                 <h2 id="boxHeader">Comments</h2>
-                <div id="commentBox"></div>
+                <div id="commentBox">
+                  <% for(var i=0; i<global.groupComments.length; i++) {%>                  
+                    
+                      <p style="color:black"><%= global.groupComments[i]["creatorName"]%>: 
+                      <%= global.groupComments[i]["text"]%></p>
+                        <a href="/comment/deleteComment/<%= global.groupComments[i]['_id']%>" class="actionButtonsTM">Delete</a>
+                     <br>
+                  <% } %>
+                </div>
             </div>
           </div>
       </div>

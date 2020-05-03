@@ -9,8 +9,8 @@ MainUserRouter.route("/newUser")
     MainUserRouter.route("/joinGroup")
     .post(require("./joinGroup"))
 
-    MainUserRouter.route("/leaveGroup")
-    .post(require("./leaveGroup"))
+    MainUserRouter.route("/leaveGroup/:userId")
+    .get(require("./leaveGroup"))
 
     MainUserRouter.route("/updatePersonal")
     .post(require("./updatePersonal"))

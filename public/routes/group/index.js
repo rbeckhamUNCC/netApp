@@ -6,7 +6,7 @@ MainGroupRouter.route("/newGroup")
 
 // "/group/deleteGroup"
 MainGroupRouter.route("/deleteGroup")
-    .post(require("./deleteGroup"))    
+    .get(require("./deleteGroup"))    
 
 // "/group/getGroup/:groupId"
 MainGroupRouter.route("/getGroup/:groupId")

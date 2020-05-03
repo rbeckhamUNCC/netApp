@@ -5,13 +5,17 @@ const bodyParser = require('body-parser');
 // "/comment/newComment"
 var Comment = require("../../models/comment");
 var Group = require("../../models/group");
+
+const getGroupFunction = require('../group/getGroupFunction');
+
+
 router.use(bodyParser.urlencoded({extended: true}));
 
 router.post('/newComment',function(request,response){
    // console.log(request.body.groupId)   
    
    var newComment = new Comment({
-       creatorId: request.body.creatorId,
+       creatorName: global.fullName,
        //group:, //might not need as it would just be in the group's array...
        created: Date.now(),
        text: request.body.text,
@@ -33,9 +37,10 @@ router.post('/newComment',function(request,response){
             console.log(err);
             return response.status(500).send();
         }
-        response.send(`Comment: "${newComment.text}" added!`);     
+       
+        getGroupFunction.getGroupFunc();    
       console.log(`Comment: "${newComment.text}" added!`);
-        return response.status(200).send();
+      return response.status(200).redirect("/groupDashboard");
         
     });
 });
