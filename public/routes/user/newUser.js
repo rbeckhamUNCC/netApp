@@ -9,11 +9,6 @@ router.use(bodyParser.urlencoded({extended: true}));
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const fs = require('fs');
-
-// var privateKEY  = fs.readFileSync('./private.key', 'utf8');
-// var publicKEY  = fs.readFileSync('./public.key', 'utf8');
-
-
 //register session to app
 router.use(expressSession(
         {
@@ -55,17 +50,6 @@ router.post('/newUser',function(request,response){
             //sub reps who the token belongs to
             var signOptions = {sub: newUser._id, expiresIn: "12h"};
 
-            // var token = jwt.sign(newUser, signOptions);
-            // console.log("Token created: " + token);
-
-          // var  token =  jwt.sign({
-          //     data: 'foobar'},
-          //     'secret',
-          //     { expiresIn: '1h' }
-          //   );
-
-            // console.log("Token created: " + token);
-
           User.collection.insertOne(newUser,function(err,savedUser){
             if(err){
                 console.log(err);
@@ -76,6 +60,7 @@ router.post('/newUser',function(request,response){
      // current workaround for token issues**************
             global.fullName = newUser.firstName + ' ' + newUser.lastName;
             global.userId = newUser._id;
+            global.profilePic = newUser.profilePic;
             //request.expressSession.userId = newUser._id;
             return response.status(200).redirect(("/dashboard"))
             // return response.redirect(("/dashboard"),{token:token});

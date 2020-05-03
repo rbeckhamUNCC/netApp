@@ -20,12 +20,19 @@
           <div>
             <h2 class="formTitle">Personal</h2>
             <form method="POST" action="/user/updatePersonal">
+
               <label for="name" class="formLabel">FIRST NAME</label><br />
               <input type="text" class="inputsForRegister2" placeholder="new first name" name="firstName"></input><br />
               <br />
+
               <label for="email" class="formLabel">LAST NAME</label><br />
               <input type="text" class="inputsForRegister2" placeholder="new last name" name="lastName"></input><br />
               <br />
+
+              <label for="profilePic" class="formLabel">PROFILE PIC</label><br />
+              <input type="text" class="inputsForRegister2" placeholder="new profile pic" name="profilePic"></input><br />
+              <br />
+
               <label for="phone" class="formLabel">EMAIL: <% if(typeof email != 'undefined') { %>
                 <%= email %>
               <% } %></label><br />
