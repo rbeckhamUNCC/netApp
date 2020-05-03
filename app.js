@@ -18,7 +18,10 @@ var expressSession = require('./node_modules/express-session');
 // const register = require('./public/routes/register.js');
 
 global.fullName = "Not Signed In";
+global.firstName = "Not Signed In";
+global.lastName = "Not Signed In";
 global.userId = "Not Signed In";
+global.userPic = "Not Signed In";
 global.groupName = "Not Signed In";
 global.groupMembers = "Not Signed In";
 global.groupMeetings = "Not Signed In";
@@ -77,9 +80,9 @@ app.use('/assets', express.static('assets'));
 app.get('/login',(request,response,next) => {
   response.sendFile(__dirname + '/public/views/login.html');
 });
-// app.get('/register',(request,response,next) => {
-//     response.sendFile(__dirname + '/public/views/register.html');
-//   });
+app.get('/register',(request,response,next) => {
+    response.sendFile(__dirname + '/public/views/register.html');
+  });
 
 //default route for the landing page
 app.get('/', function(request, response) {
