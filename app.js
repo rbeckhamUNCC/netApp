@@ -86,7 +86,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/addNewTask', function(request,response) {
-  response.sendFile(__dirname + '/public/views/addTaskModal.html');
+  response.render(__dirname + '/public/views/addTaskModal.ejs');
 });
 
 app.get('/updateTask', function(request, response) {

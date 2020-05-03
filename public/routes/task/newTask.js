@@ -12,9 +12,9 @@ router.post('/newTask',function(request,response){
    
    var newTask = new Task({
        taskName: request.body.taskName,
-       creatorId: request.body.creatorId,
+       creatorName: request.body.fullName,
        //group:, //might not need as it would just be in the group's array...
-       status: "not started",
+       status: request.body.status,
        description: request.body.description,
    });
 
@@ -32,9 +32,9 @@ router.post('/newTask',function(request,response){
         console.log(err);
         return response.status(500).send();
     }
-    response.send(`Task: "${newTask.description}" added!`);     
+    //response.send(`Task: "${newTask.description}" added!`);     
   console.log(`Task: "${newTask.description}" added!`);
-    return response.status(200).send();
+    return response.status(200).redirect("/taskManager");
     
 });
 });

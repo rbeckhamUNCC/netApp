@@ -16,13 +16,10 @@
       </div>
       <header id="taskManager">
         <div class="task">
-          <% if (typeof group !== undefined) { %>
-            <h1 id="taskManagerHeader">Task Manager</h1>
+    
+            <h1 id="taskManagerHeader">Task Manager for <%= groupName %> </h1>
             <a href="/addNewTask" class="groupbtn new">Create New</a>
-          <% } else { %>
-            <h1 id="taskManagerHeader">Task Manager - <%= group.groupName %> </h1>
-            <a href="/addNewTask" class="groupbtn new">Create New</a>
-          <% } %>
+    
         </div>
       </header>
       <div class="hiddenOverflow">
@@ -52,104 +49,22 @@
                   <a href="#" class="actionButtonsTM">Delete</a>
                 </td>
               </tr>
-              <tr>
-                <td class="tableCell">Matthew McCoy</td>
-                <td class="tableCell">Task Manager</td>
-                <td class="tableCell tableDescription">
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                </td>
-                <td class="tableCell progressTD">Need Help</td>
-                <td class="tableCell">
-                  <a href="/updateTask" class="actionButtonsTM">Update</a>
-                  <a href="#" class="actionButtonsTM">Delete</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableCell">Matthew McCoy</td>
-                <td class="tableCell">Task Manager</td>
-                <td class="tableCell tableDescription">
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                </td>
-                <td class="tableCell">Need Help</td>
-                <td class="tableCell">
-                  <a href="/updateTask" class="actionButtonsTM">Update</a>
-                  <a href="#" class="actionButtonsTM">Delete</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableCell">Matthew McCoy</td>
-                <td class="tableCell">Task Manager</td>
-                <td class="tableCell tableDescription">
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                </td>
-                <td class="tableCell">Need Help</td>
-                <td class="tableCell">
-                  <a href="/updateTask" class="actionButtonsTM">Update</a>
-                  <a href="#" class="actionButtonsTM">Delete</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableCell">Matthew McCoy</td>
-                <td class="tableCell">Task Manager</td>
-                <td class="tableCell tableDescription">
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                </td>
-                <td class="tableCell">Need Help</td>
-                <td class="tableCell">
-                  <a href="/updateTask" class="actionButtonsTM">Update</a>
-                  <a href="#" class="actionButtonsTM">Delete</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableCell">Matthew McCoy</td>
-                <td class="tableCell">Task Manager</td>
-                <td class="tableCell tableDescription">
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                </td>
-                <td class="tableCell">Need Help</td>
-                <td class="tableCell">
-                  <a href="/updateTask" class="actionButtonsTM">Update</a>
-                  <a href="#" class="actionButtonsTM">Delete</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableCell">Matthew McCoy</td>
-                <td class="tableCell">Task Manager</td>
-                <td class="tableCell tableDescription">
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                </td>
-                <td class="tableCell">Need Help</td>
-                <td class="tableCell">
-                  <a href="/updateTask" class="actionButtonsTM">Update</a>
-                  <a href="#" class="actionButtonsTM">Delete</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableCell">Matthew McCoy</td>
-                <td class="tableCell">Task Manager</td>
-                <td class="tableCell tableDescription">
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                  This is a description of what I am writing for this task.
-                </td>
-                <td class="tableCell">Need Help</td>
-                <td class="tableCell">
-                  <a href="/updateTask" class="actionButtonsTM">Update</a>
-                  <a href="#" class="actionButtonsTM">Delete</a>
-                </td>
-              </tr>
+             
+                <% for(var i=0; i<global.groupTasks.length; i++) {%>                  
+                  <tr>
+                    <td class="tableCell"><%= global.groupTasks[i]["creatorName"]%></td>
+                    <td class="tableCell"><%= global.groupTasks[i]["taskName"]%></td>
+                    <td class="tableCell tableDescription">
+                      <%= global.groupTasks[i]["description"]%>
+                    </td>
+                    <td class="tableCell"><%= global.groupTasks[i]["status"]%></td>
+                    <td class="tableCell">
+                      <a href="/updateTask/<%= global.groupTasks[i]['_id']%>" class="actionButtonsTM">Update</a>
+                      <a href="/task/deleteTask/<%= global.groupTasks[i]['_id']%>" class="actionButtonsTM">Delete</a>
+                    </td>
+                  </tr>
+                <% } %>
+              
             </tbody>
           </table>
         </div>
